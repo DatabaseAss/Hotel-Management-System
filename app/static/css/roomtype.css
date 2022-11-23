@@ -1,0 +1,364 @@
+html{
+    overflow-x: hidden;
+}
+.holder{
+    width:100vw;
+    height:100vh;
+    margin:0;
+}
+/* The side navigation menu */
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 180px;
+    background-color: #fff;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+.sidebar .logo {
+    width:100%;
+    height:5em;
+    display: flex;
+    padding-top:1em;
+    padding-left:.5em;
+}
+
+.sidebar .logo img{
+    width:3em;
+    height:3em;
+}
+.sidebar .logo p{
+    font-size:18px;
+    font-weight: bold;
+    padding-top:.5em;
+    padding-left:1em;
+    
+}
+  /* Sidebar links */
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    height: 20.5em;
+    padding-top:80%;
+}
+.sidebar i {
+    padding-right: 16px;
+}
+  
+  /* Active/current link */
+.sidebar a.active {
+    background-color: #676767;
+    color: white;
+}
+  
+  /* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+    background-color: #676767;
+    color: white;
+}
+  
+
+
+.main{
+    width:auto;
+    height:100%;
+    margin-left: 200px;
+}
+
+.header{
+    width: 100%;
+    height: 10%;
+    display: flex;
+}
+.dropdown{
+    padding-top:1em;
+    padding-left:5em;
+    width:5em;
+}
+.dropdown button{
+    border:solid 1px #acacac;
+    width:10em;
+    border-radius: 0px;
+}
+.dropdown button:hover{
+    border:solid 1px #acacac;
+}
+
+/* Style the search field */
+.searchbar{
+    margin-top: 1.5em;
+    margin-left:3em;
+}
+form.searchbar input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    height:2.5em;
+    background: #f1f1f1;
+    border-radius: 5px 0 0 5px;
+  }
+  
+  /* Style the submit button */
+  form.searchbar button {
+    width: 20%;
+    padding: 8px;
+    background: #767676;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+  }
+  
+  form.searchbar button:hover {
+    background: #494949;
+  }
+  
+  /* Clear floats */
+  form.searchbar::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+.header .icon{
+    margin-left:41em;
+    margin-top:.6em;
+    font-size: 25px;
+}
+.user{
+    font-size: 38px;
+}
+.header .icon a{
+    margin: 0em .4em;
+    color: #676767;
+}
+
+.slider h1{
+    position: relative;
+}
+/* Slideshow container */
+.slideshow-container {
+    max-width: 100.5em;
+    margin-left:-1.3em;
+  }
+  .slideshow-container h1{
+    margin-top:-1.5em;
+    margin-left:1em;
+    font-size: 60px;
+    font-weight: bold;
+    color:white;
+}
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  .mySlides img{
+    height:30em;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -5em;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: 1}
+    to {opacity: 1}
+  }
+
+.list{
+    width:84em;
+    height:auto;
+    margin-left:-1em;
+}
+.item{
+    width:95%;
+    height:14em;
+    margin-left:2em;
+    margin-top:2em;
+    background-color: #d0d0d0;
+    display: flex;
+    border-radius: 15px;
+}
+.item:hover{
+    background-color: #acacac;
+}
+.item .image{
+    width: 45em;
+    height:14em;
+    border-radius: 15px;
+}
+.item .image img{
+    border-radius: 15px;
+}
+.item .info{
+    margin-top:1em;
+    margin-left:1em;
+    color:black;
+}
+.item .info h3{
+    margin-left:28em;
+}
+
+
+
+/*popup*/
+
+
+.popup {
+    margin-top:1.5em;
+    margin-left:30em;
+  }
+  
+  /* The actual popup (appears on top) */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 30em;
+    height:40em;
+    margin-left:-45em;
+    margin-top:-15em;
+    background-color: rgb(230, 230, 230);
+    color: #444444;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    box-shadow:0 0 0 10000px rgba(0,0,0,.50);
+
+  }
+  
+
+  
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+
+
+  .cover {
+    display:flex;
+    justify-content: center;
+    margin-top:.5em;
+}
+.cover .user-box {
+    position: relative;
+    width:95%;
+    margin: 0em 1em;
+}
+.cover .user-box label{
+    margin:0em 0em;
+    margin-left:0em;
+    font-weight: bold;
+}
+  
+.cover .user-box input {
+    width: 100%;
+    padding: .5em 0;
+    font-size: 16px;
+    color: black;
+    margin-bottom: 2em;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: #d3d3d3;
+    border-radius: 5px;
+    outline: none;
+}
+.cover .user-box select {
+    width: 100%;
+    padding: .5em 0;
+    font-size: 16px;
+    color: black;
+    margin-bottom: 2em;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: #d3d3d3;
+    border-radius: 5px;
+    outline: none;
+  }
