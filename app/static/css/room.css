@@ -1,0 +1,205 @@
+html{
+    overflow-x: hidden;
+}
+.holder{
+    width:100vw;
+    height:100vh;
+    margin:0;
+}
+/* The side navigation menu */
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 180px;
+    background-color: #fff;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+.sidebar .logo {
+    width:100%;
+    height:5em;
+    display: flex;
+    padding-top:1em;
+    padding-left:.5em;
+}
+
+.sidebar .logo img{
+    width:3em;
+    height:3em;
+}
+.sidebar .logo p{
+    font-size:18px;
+    font-weight: bold;
+    padding-top:.5em;
+    padding-left:1em;
+    
+}
+  /* Sidebar links */
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    height: 20.5em;
+    padding-top:80%;
+}
+.sidebar i {
+    padding-right: 16px;
+}
+  
+  /* Active/current link */
+.sidebar a.active {
+    background-color: #676767;
+    color: white;
+}
+  
+  /* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+    background-color: #676767;
+    color: white;
+}
+  
+
+
+.main{
+    width:auto;
+    height:100%;
+    margin-left: 200px;
+}
+
+.header{
+    width: 100%;
+    height: 10%;
+    display: flex;
+}
+.dropdown{
+    padding-top:1em;
+    padding-left:5em;
+    width:5em;
+}
+.dropdown button{
+    border:solid 1px #acacac;
+    width:10em;
+    border-radius: 0px;
+}
+.dropdown button:hover{
+    border:solid 1px #acacac;
+}
+
+/* Style the search field */
+.searchbar{
+    margin-top: 1.5em;
+    margin-left:3em;
+}
+form.searchbar input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    height:2.5em;
+    background: #f1f1f1;
+    border-radius: 5px 0 0 5px;
+  }
+
+.header .icon{
+    margin-left:41em;
+    margin-top:.6em;
+    font-size: 25px;
+}
+.user{
+    font-size: 38px;
+}
+.header .icon a{
+    margin: 0em .4em;
+    color: #676767;
+}
+
+
+.image-holder{
+    padding-left:6em;
+
+}
+.image{
+    height:36em;
+    width:70em;
+    display: flex;
+}
+.img1{
+    height:99.5%;
+    width:50em;
+    background-color: yellow;
+    margin:0.2em;
+
+}
+.img234{
+    height:100%;
+    width:20em;
+}
+.img2{
+    height: 11.8em;
+    width:98%;
+    background-color: aqua;
+    margin:0.2em;
+}
+
+/*popup*/
+
+
+.popup {
+
+  }
+  
+  /* The actual popup (appears on top) */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 70em;
+    height:36em;
+    margin-left:-5em;
+    margin-top:-40em;
+    background-color: rgb(230, 230, 230);
+    color: #444444;
+    text-align: center;
+    border-radius: 6px;
+    padding: 0px 0;
+    position: absolute;
+    z-index: 1;
+    box-shadow:0 0 0 10000px rgba(0,0,0,.50);
+
+  }
+  
+
+  
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+
+
+.overview{
+    padding-left:6em;
+    padding-top:3em;
+    margin-bottom:14em;
+}
+.overview h3{
+    margin-bottom:2em;
+}
+.offer{
+    padding-right:10em;
+}
