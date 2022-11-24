@@ -271,94 +271,17 @@ form.searchbar input[type=text] {
 .item .info h3{
     margin-left:28em;
 }
-
-
-
-/*popup*/
-
-
-.popup {
-    margin-top:1.5em;
-    margin-left:30em;
-  }
-  
-  /* The actual popup (appears on top) */
-  .popup .popuptext {
-    visibility: hidden;
-    width: 30em;
-    height:40em;
-    margin-left:-45em;
-    margin-top:-15em;
-    background-color: rgb(230, 230, 230);
-    color: #444444;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    box-shadow:0 0 0 10000px rgba(0,0,0,.50);
-
-  }
-  
-
-  
-  /* Toggle this class when clicking on the popup container (hide and show the popup) */
-  .popup .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s
-  }
-  
-  /* Add animation (fade in the popup) */
-  @-webkit-keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
-  
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-  }
-
-
-
-  .cover {
-    display:flex;
-    justify-content: center;
-    margin-top:.5em;
+.add .btn{
+  width:12em;
+  height:2.5em;
+  border-radius: 10px;
+  border:none;
+  background-color: #585858;
+  color:white;
+  font-weight: bold;
+  margin-left:25em;
+  margin-top:1.5em;
 }
-.cover .user-box {
-    position: relative;
-    width:95%;
-    margin: 0em 1em;
-}
-.cover .user-box label{
-    margin:0em 0em;
-    margin-left:0em;
-    font-weight: bold;
-}
-  
-.cover .user-box input {
-    width: 100%;
-    padding: .5em 0;
-    font-size: 16px;
-    color: black;
-    margin-bottom: 2em;
-    border: none;
-    border-bottom: 1px solid black;
-    background-color: #d3d3d3;
-    border-radius: 5px;
-    outline: none;
-}
-.cover .user-box select {
-    width: 100%;
-    padding: .5em 0;
-    font-size: 16px;
-    color: black;
-    margin-bottom: 2em;
-    border: none;
-    border-bottom: 1px solid black;
-    background-color: #d3d3d3;
-    border-radius: 5px;
-    outline: none;
-  }
+
+
+
