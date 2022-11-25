@@ -15,6 +15,7 @@ html{
     position: fixed;
     height: 100%;
     overflow: auto;
+    font-weight: bold;
   }
   
 .sidebar .logo {
@@ -103,14 +104,48 @@ html{
 /*board*/
 .board{
     width:100%;
-    height: 40%;
+    height: 60%;
 }
 .board h4{
     padding-top:.2em;
     padding-left:1em;
 }
+.general{
+  height:30%;
+  width:100%;
+  display: flex;
+  margin-top:1em;
+}
+.general .item{
+  height:100%;
+  width:20em;
+  background-color: #acacac;
+  margin:0em 3em;
+  padding:.5em 1em;
+  border-radius: 10px;
+  text-align: center;
+}
+.general .item:hover{
+  background-color: #767676;
+  color:white;
+}
+.general .item p{
+  font-size: 18px;
+}
+.general .item h4{
+  font-size: 40px;
+  margin-left:-1em;
+  margin-top:-.5em;
+}
+.general .item h5{
+  font-size: 20px;
+  margin-left:0em;
+  margin-top:.5em;
+}
+
 .board-main{
-    display: flex;
+  height:70%;
+  width:100%;
 }
 #total{
     width:20%;
@@ -128,8 +163,8 @@ html{
   /* (B3) VERTICAL */
   .vbar {
     display: flex;
-    width: 65%;
-    margin: 20px 0;
+    width: 90%;
+    margin: 3em 1em;
     align-items: flex-end;
     height: 200px;
     background: repeating-linear-gradient(
@@ -139,21 +174,36 @@ html{
    
   /* (C) EACH INDIVIDUAL BAR */
   /* (C1) SHARED */
-  .hbar div, .vbar div {
+ .vbar div {
     color: #fff;
     padding: 10px;
+    width: 5.7em;
+    background-color: #676767;
+    margin: 0px 5px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
   }
-   
-   
-  /* (C3) VERTICAL */
-.vbar div { 
-    width: 4em;
-}
+  .vbar div p {
+   margin-top:-2em;
+   margin-left: 1.3em;
+   color:#3b3b3b;
+   display: none;
+   margin-bottom:.5em;
+   font-weight: bold;
+  }
+  .vbar div:hover {
+    background-color: #3b3b3b;
+  }
+  .vbar div:hover p {
+    display: flex;
+  }
 
 
 .customerList{
     width:100%;
     height: 50%;
+    margin-top:1em;
 }
 table {
     border: 1px solid #ccc;
@@ -173,6 +223,10 @@ table {
     background-color: #f8f8f8;
     border: 1px solid #ddd;
     padding: .35em;
+  }
+  table tr:hover {
+    background-color: #acacac;
+
   }
 
   table th,

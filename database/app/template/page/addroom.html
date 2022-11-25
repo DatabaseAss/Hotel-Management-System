@@ -15,9 +15,9 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/HCMUT_official_logo.png" />
                 <p>Database</p>
             </div>
-            <a class="active" href="./dashboard.html"> <i class="fa fa-house"></i> Dashboard</a>
-            <a href="./roomtype.html"> <i class="fa-solid fa-folder"></i> Room Type</a>
-          </div>
+            <a class="active" href="/"> <i class="fa fa-house"></i> DASHBOARD</a>
+            <a href="/roomtype"> <i class="fa-solid fa-folder"></i> ROOM TYPE</a>
+          </div> 
           
         <div class="main">
             <div class="header">
@@ -50,25 +50,25 @@
                     <div class="info-holder">
                         <h5><i class="fa-solid fa-circle-info"></i> General information</h5>
                         <div style="display:flex; margin-bottom:1em;">
-                            <div><p><b>Room Type ID</b></p><p class="ans1">123456789</p></div>
-                            <div style="margin-left:4em;"><p><b>Room Type Name</b></p><p class="ans2">ababca</p></div>
+                            <div><p><b>Room Type ID</b></p><input type="text" placeholder="123456789" class="ans1"></div>
+                            <div style="margin-left:4em;"><p><b>Room Type Name</b></p><input type="text" placeholder="123456789" class="ans2"></div>
                         </div>
                         <div style="display:flex; margin-bottom:1em;">
-                            <div><p><b>Bed Information</b></p><p class="ans1">4 beds</p></div>
-                            <div style="margin-left:4em;"><p><b>Supplies</b></p><p class="ans2">Khong biet</p></div>
+                            <div><p><b>Bed Information</b></p><input type="text" placeholder="4 beds" class="ans1"></div>
+                            <div style="margin-left:4em;"><p><b>Supplies</b></p><input type="text" placeholder="123456789" class="ans2"></div>
                         </div>
                         <div style="display:flex; margin-bottom:1em;">
-                            <div><p><b>Area</b></p><p class="ans1">District 1</p></div>
-                            <div style="margin-left:4em;"><p><b>Capacity</b></p><p class="ans2">1000m2</p></div>
+                            <div><p><b>Area</b></p><input type="text" placeholder="1000m2" class="ans1"></div>
+                            <div style="margin-left:4em;"><p><b>Capacity</b></p><input type="text" placeholder="123456789" class="ans2"></div>
                         </div>
-                        <div><p><b>Description</b></p><p class="ans">Great</p></div>
-                    </div>
-                    <div class="related">
-                        <h5><i class="fa-solid fa-circle-info"></i> General information</h5>
-                        <p><b>Upload the room's picture here</b></p>
-                        <input type="file" accept="image/*" onchange="loadFile(event)">
-                        <img id="output"/>
-                        
+                        <div><p><b>Description</b></p><input type="text" placeholder="Great" class="ans"></div>
+                        <div class="related">
+                            <h5><i class="fa-solid fa-circle-info"></i> Related information</h5>
+                            <p><b>Upload the room's picture here</b></p>
+                            <input type="file" accept="image/*" onchange="loadFile(event)">
+                            <img id="output"/>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
