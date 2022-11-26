@@ -31,8 +31,8 @@ class CustomManager(BaseUserManager):
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     fullname = models.CharField(max_length=100, default='')
     date_of_birth = models.DateField(default=timezone.now)
-    phone_number = models.CharField(max_length=20,  default='', unique=True)
-    email = models.EmailField(max_length=254, default='', unique=True)
+    phone_number = models.CharField(max_length=20,  default='', unique=False)
+    email = models.EmailField(max_length=254, default='', unique=False)
 
     # Staff ID = Username
     username = models.CharField(max_length=100, unique=True, primary_key=True)
