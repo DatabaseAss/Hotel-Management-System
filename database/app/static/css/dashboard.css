@@ -87,11 +87,15 @@ html{
 .dropdown button:hover{
     border:solid 1px #acacac;
 }
+.dropdown-menu a:hover{
+  background-color: #acacac;
+}
 
 .header .icon{
-    margin-left:41em;
+    margin-left:40em;
     margin-top:.6em;
     font-size: 25px;
+    display: flex;
 }
 .user{
     font-size: 38px;
@@ -100,6 +104,22 @@ html{
     margin: 0em .4em;
     color: #676767;
 }
+.icon .dropdown{
+  margin-left:-5em;
+  margin-top:-1.2em;
+  width:auto;
+}
+.icon .dropdown button{
+  width:auto;
+  border:none;
+}
+.icon .dropdown-menu{
+  margin-left:-5em;
+}
+.icon .dropdown-menu a{
+  width:auto;
+}
+
 
 /*board*/
 .board{

@@ -42,7 +42,19 @@
           <a href="/"><i class="fa-solid fa-phone"></i></a>
           <a href="/"><i class="fa-solid fa-message"></i></a>
           <a href="/"><i class="fa-solid fa-bell"></i></a>
-          <a href="/"><i class="fa-solid fa-circle-user user"></i></a>
+          <div class="dropdown">
+            <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <a href="/"><i class="fa-solid fa-circle-user user"></i></a>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="/admin">Administrator</a>
+              <!--Log out-->
+              <form action="POST">
+                <a class="dropdown-item" href="#">Log out</a>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
       <div class="board">
