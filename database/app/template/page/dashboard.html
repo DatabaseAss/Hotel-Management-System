@@ -94,352 +94,202 @@
         </div>
       </div>
       <div class="customerList">
-        <table>
-          <h4 style="margin-left:1em; margin-bottom:.5em;"><b>CUSTOMER INFORMATION</b></h4>
-          <thead>
-            <tr style="background-color:#898888 ;">
-              <th scope="col">Name</th>
-              <th scope="col">Phone</th>
-              <th scope="col">Email</th>
-              <th scope="col">ID</th>
-              <th scope="col">Username</th>
-              <th scope="col">Point</th>
-              <th scope="col">Type</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="popup">
-              <td data-label="Name">User's name</td>
-              <td data-label="Phone">0123456789</td>
-              <td data-label="Email">username@gmail.com</td>
-              <td data-label="ID">0001</td>
-              <td data-label="Username">username</td>
-              <td data-label="Point">1,190</td>
-              <td data-label="Type">VIP</td>
-              <td style="padding:0;">
-                <div class="popup" onclick="myFunction()">More...
-                  <div class="popuptext" id="myPopup">
-                    <div class="service-info">
-                      <h5><b>Name</b> : $87 / night</h5>
-                      <p><b>Booking ID</b> : 12321</p>
+        <div style="display:flex;">
+          <h4><b>CLIENTS INFORMATION</b></h4>
+          <form class="searching" action="action_page.php">
+            <input type="text" placeholder="Search.." name="search" 
+            style="
+            width:20em; 
+            height:2.5em;
+            margin-top:0em;
+            margin-left:38em;
+            margin-bottom:1em;
+            border-radius: 5px 0px 0px 5px;
+            border-color:#acacac;">
+            <button type="submit" 
+            style="
+            width:3em;
+            height:2.5em;
+            margin-top:-5em;
+            margin-left:0em;
+            border-radius: 0px 5px 5px 0px; 
+            background-color: #acacac;
+            border-color: #acacac;
+            color:white;"><i class="fa fa-search" ></i></button>
+          </form>
+        </div>
+        <table id="myTable">
+          <tr style="background-color:#acacac;">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Usernname</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Point</th>
+            <th>Rank</th>
+            <th>...</th>
+          </tr>
+          <tr>
+            <td>0123</td>
+            <td>User name</td>
+            <td>username</td>
+            <td>username@gmail.com</td>
+            <td>0123456789</td>
+            <td>1254</td>
+            <td>VIP</td>
+            <td style="padding:0;">
+              <div class="popup" onclick="myFunction()">More...
+                <div class="popuptext" id="myPopup">
+                  <div class="service-info">
+                    <h5><b>Name</b> : $87 / night</h5>
+                    <p><b>Booking ID</b> : 12321</p>
+                  </div>
+                  <hr>
+                  <div class="check">
+                    <div style="margin-right:13em;">
+                      <p><b>Check in</b></p>
+                      <p>17/07/2022</p>
                     </div>
-                    <hr>
-                    <div class="check">
-                      <div style="margin-right:13em;">
-                        <p><b>Check in</b></p>
-                        <p>17/07/2022</p>
-                      </div>
-                      <div>
-                        <p><b>Check out</b></p>
-                        <p>21/07/2022</p>
-                      </div>
-                    </div>
-                    <div class="check">
-                      <div>
-                        <p><b>Number of guests</b></p>
-                        <p>2 guests</p>
-                      </div>
-                    </div>
-                    <div class="check">
-                      <div style="margin-right:13em;">
-                        <p>$86 x 4 nights : </p>
-                        <p>New user discount : </p>
-                        <p>Service fee : </p>
-                        <p><b>Total (USD) : </b></p>
-                      </div>
-                      <div>
-                        <p>$348</p>
-                        <p>-$87</p>
-                        <p>$12</p>
-                        <p><b>$273</b></p>
-                      </div>
-                    </div>
-                    <hr>
-                    <div style="display:flex; justify-content:center;">
-                      <button class="btn btn-secondary" style="width:10em;"> Reserve </button>
+                    <div>
+                      <p><b>Check out</b></p>
+                      <p>21/07/2022</p>
                     </div>
                   </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Name">User's name</td>
-              <td data-label="Phone">0123456789</td>
-              <td data-label="Email">username@gmail.com</td>
-              <td data-label="ID">0001</td>
-              <td data-label="Username">username</td>
-              <td data-label="Point">1,190</td>
-              <td data-label="Type">VIP</td>
-              <td style="padding:0;">
-                <div class="popup" onclick="myFunction()">More...
-                  <div class="popuptext" id="myPopup">
-                    <div class="service-info">
-                      <h5><b>Name</b> : $87 / night</h5>
-                      <p><b>Booking ID</b> : 12321</p>
-                    </div>
-                    <hr>
-                    <div class="check">
-                      <div style="margin-right:13em;">
-                        <p><b>Check in</b></p>
-                        <p>17/07/2022</p>
-                      </div>
-                      <div>
-                        <p><b>Check out</b></p>
-                        <p>21/07/2022</p>
-                      </div>
-                    </div>
-                    <div class="check">
-                      <div>
-                        <p><b>Number of guests</b></p>
-                        <p>2 guests</p>
-                      </div>
-                    </div>
-                    <div class="check">
-                      <div style="margin-right:13em;">
-                        <p>$86 x 4 nights : </p>
-                        <p>New user discount : </p>
-                        <p>Service fee : </p>
-                        <p><b>Total (USD) : </b></p>
-                      </div>
-                      <div>
-                        <p>$348</p>
-                        <p>-$87</p>
-                        <p>$12</p>
-                        <p><b>$273</b></p>
-                      </div>
-                    </div>
-                    <hr>
-                    <div style="display:flex; justify-content:center;">
-                      <button class="btn btn-secondary" style="width:10em;"> Reserve </button>
+                  <div class="check">
+                    <div>
+                      <p><b>Number of guests</b></p>
+                      <p>2 guests</p>
                     </div>
                   </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Name">User's name</td>
-              <td data-label="Phone">0123456789</td>
-              <td data-label="Email">username@gmail.com</td>
-              <td data-label="ID">0001</td>
-              <td data-label="Username">username</td>
-              <td data-label="Point">1,190</td>
-              <td data-label="Type">VIP</td>
-              <td style="padding:0;">
-                <div class="popup" onclick="myFunction()">More...
-                  <div class="popuptext" id="myPopup">
-                    <div class="service-info">
-                      <h5><b>Name</b> : $87 / night</h5>
-                      <p><b>Booking ID</b> : 12321</p>
+                  <div class="check">
+                    <div style="margin-right:13em;">
+                      <p>$86 x 4 nights : </p>
+                      <p>New user discount : </p>
+                      <p>Service fee : </p>
+                      <p><b>Total (USD) : </b></p>
                     </div>
-                    <hr>
-                    <div class="check">
-                      <div style="margin-right:13em;">
-                        <p><b>Check in</b></p>
-                        <p>17/07/2022</p>
-                      </div>
-                      <div>
-                        <p><b>Check out</b></p>
-                        <p>21/07/2022</p>
-                      </div>
-                    </div>
-                    <div class="check">
-                      <div>
-                        <p><b>Number of guests</b></p>
-                        <p>2 guests</p>
-                      </div>
-                    </div>
-                    <div class="check">
-                      <div style="margin-right:13em;">
-                        <p>$86 x 4 nights : </p>
-                        <p>New user discount : </p>
-                        <p>Service fee : </p>
-                        <p><b>Total (USD) : </b></p>
-                      </div>
-                      <div>
-                        <p>$348</p>
-                        <p>-$87</p>
-                        <p>$12</p>
-                        <p><b>$273</b></p>
-                      </div>
-                    </div>
-                    <hr>
-                    <div style="display:flex; justify-content:center;">
-                      <button class="btn btn-secondary" style="width:10em;"> Reserve </button>
+                    <div>
+                      <p>$348</p>
+                      <p>-$87</p>
+                      <p>$12</p>
+                      <p><b>$273</b></p>
                     </div>
                   </div>
+                  <hr>
                 </div>
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Name">User's name</td>
-              <td data-label="Phone">0123456789</td>
-              <td data-label="Email">username@gmail.com</td>
-              <td data-label="ID">0001</td>
-              <td data-label="Username">username</td>
-              <td data-label="Point">1,190</td>
-              <td data-label="Type">VIP</td>
-              <td style="padding:0;">
-                <div class="popup" onclick="myFunction()">More...
-                  <div class="popuptext" id="myPopup">
-                    <div class="service-info">
-                      <h5><b>Name</b> : $87 / night</h5>
-                      <p><b>Booking ID</b> : 12321</p>
-                    </div>
-                    <hr>
-                    <div class="check">
-                      <div style="margin-right:13em;">
-                        <p><b>Check in</b></p>
-                        <p>17/07/2022</p>
-                      </div>
-                      <div>
-                        <p><b>Check out</b></p>
-                        <p>21/07/2022</p>
-                      </div>
-                    </div>
-                    <div class="check">
-                      <div>
-                        <p><b>Number of guests</b></p>
-                        <p>2 guests</p>
-                      </div>
-                    </div>
-                    <div class="check">
-                      <div style="margin-right:13em;">
-                        <p>$86 x 4 nights : </p>
-                        <p>New user discount : </p>
-                        <p>Service fee : </p>
-                        <p><b>Total (USD) : </b></p>
-                      </div>
-                      <div>
-                        <p>$348</p>
-                        <p>-$87</p>
-                        <p>$12</p>
-                        <p><b>$273</b></p>
-                      </div>
-                    </div>
-                    <hr>
-                    <div style="display:flex; justify-content:center;">
-                      <button class="btn btn-secondary" style="width:10em;"> Reserve </button>
-                    </div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Name">User's name</td>
-              <td data-label="Phone">0123456789</td>
-              <td data-label="Email">username@gmail.com</td>
-              <td data-label="ID">0001</td>
-              <td data-label="Username">username</td>
-              <td data-label="Point">1,190</td>
-              <td data-label="Type">VIP</td>
-              <td style="padding:0;">
-                <div class="popup" onclick="myFunction()">More...
-                  <div class="popuptext" id="myPopup">
-                    <div class="service-info">
-                      <h5><b>Name</b> : $87 / night</h5>
-                      <p><b>Booking ID</b> : 12321</p>
-                    </div>
-                    <hr>
-                    <div class="check">
-                      <div style="margin-right:13em;">
-                        <p><b>Check in</b></p>
-                        <p>17/07/2022</p>
-                      </div>
-                      <div>
-                        <p><b>Check out</b></p>
-                        <p>21/07/2022</p>
-                      </div>
-                    </div>
-                    <div class="check">
-                      <div>
-                        <p><b>Number of guests</b></p>
-                        <p>2 guests</p>
-                      </div>
-                    </div>
-                    <div class="check">
-                      <div style="margin-right:13em;">
-                        <p>$86 x 4 nights : </p>
-                        <p>New user discount : </p>
-                        <p>Service fee : </p>
-                        <p><b>Total (USD) : </b></p>
-                      </div>
-                      <div>
-                        <p>$348</p>
-                        <p>-$87</p>
-                        <p>$12</p>
-                        <p><b>$273</b></p>
-                      </div>
-                    </div>
-                    <hr>
-                    <div style="display:flex; justify-content:center;">
-                      <button class="btn btn-secondary" style="width:10em;"> Reserve </button>
-                    </div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td data-label="Name">User's name</td>
-              <td data-label="Phone">0123456789</td>
-              <td data-label="Email">username@gmail.com</td>
-              <td data-label="ID">0001</td>
-              <td data-label="Username">username</td>
-              <td data-label="Point">1,190</td>
-              <td data-label="Type">VIP</td>
-              <td style="padding:0;">
-                <div class="popup" onclick="myFunction()">More...
-                  <div class="popuptext" id="myPopup">
-                    <div class="service-info">
-                      <h5><b>Name</b> : $87 / night</h5>
-                      <p><b>Booking ID</b> : 12321</p>
-                    </div>
-                    <hr>
-                    <div class="check">
-                      <div style="margin-right:13em;">
-                        <p><b>Check in</b></p>
-                        <p>17/07/2022</p>
-                      </div>
-                      <div>
-                        <p><b>Check out</b></p>
-                        <p>21/07/2022</p>
-                      </div>
-                    </div>
-                    <div class="check">
-                      <div>
-                        <p><b>Number of guests</b></p>
-                        <p>2 guests</p>
-                      </div>
-                    </div>
-                    <div class="check">
-                      <div style="margin-right:13em;">
-                        <p>$86 x 4 nights : </p>
-                        <p>New user discount : </p>
-                        <p>Service fee : </p>
-                        <p><b>Total (USD) : </b></p>
-                      </div>
-                      <div>
-                        <p>$348</p>
-                        <p>-$87</p>
-                        <p>$12</p>
-                        <p><b>$273</b></p>
-                      </div>
-                    </div>
-                    <hr>
-                    <div style="display:flex; justify-content:center;">
-                      <button class="btn btn-secondary" style="width:10em;"> Reserve </button>
-                    </div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>0123</td>
+            <td>User name</td>
+            <td>username</td>
+            <td>username@gmail.com</td>
+            <td>0123456789</td>
+            <td>1254</td>
+            <td>VIP</td>
+            <td>More</td>
+          </tr>
+          <tr>
+            <td>0123</td>
+            <td>User name</td>
+            <td>username</td>
+            <td>username@gmail.com</td>
+            <td>0123456789</td>
+            <td>1254</td>
+            <td>VIP</td>
+            <td>More</td>
+          </tr>
+          <tr>
+            <td>0123</td>
+            <td>User name</td>
+            <td>username</td>
+            <td>username@gmail.com</td>
+            <td>0123456789</td>
+            <td>1254</td>
+            <td>VIP</td>
+            <td>More</td>
+          </tr>
+          <tr>
+            <td>0123</td>
+            <td>User name</td>
+            <td>username</td>
+            <td>username@gmail.com</td>
+            <td>0123456789</td>
+            <td>1254</td>
+            <td>VIP</td>
+            <td>More</td>
+          </tr>
+          <tr>
+            <td>0123</td>
+            <td>User name</td>
+            <td>username</td>
+            <td>username@gmail.com</td>
+            <td>0123456789</td>
+            <td>1254</td>
+            <td>VIP</td>
+            <td>More</td>
+          </tr>
+          <tr>
+            <td>0123</td>
+            <td>User name</td>
+            <td>username</td>
+            <td>username@gmail.com</td>
+            <td>0123456789</td>
+            <td>1254</td>
+            <td>VIP</td>
+            <td>More</td>
+          </tr>
+          <tr>
+            <td>0123</td>
+            <td>User name</td>
+            <td>username</td>
+            <td>username@gmail.com</td>
+            <td>0123456789</td>
+            <td>1254</td>
+            <td>VIP</td>
+            <td>More</td>
+          </tr>
+          <tr>
+            <td>0123</td>
+            <td>User name</td>
+            <td>username</td>
+            <td>username@gmail.com</td>
+            <td>0123456789</td>
+            <td>1254</td>
+            <td>VIP</td>
+            <td>More</td>
+          </tr>
+          <tr>
+            <td>0123</td>
+            <td>User name</td>
+            <td>username</td>
+            <td>username@gmail.com</td>
+            <td>0123456789</td>
+            <td>1254</td>
+            <td>VIP</td>
+            <td>More</td>
+          </tr>
+          <tr>
+            <td>0123</td>
+            <td>User name</td>
+            <td>username</td>
+            <td>username@gmail.com</td>
+            <td>0123456789</td>
+            <td>1254</td>
+            <td>VIP</td>
+            <td>More</td>
+          </tr>
+        </table>  
+        </main>
       </div>
     </div>
   </div>
   <script src="{%static 'js/barchart.js' %}"></script>
   <script src="{%static '/js/popup.js' %}"></script>
+  <script src="{%static 'js/pagination.js' %}"></script>
+
+
 
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
