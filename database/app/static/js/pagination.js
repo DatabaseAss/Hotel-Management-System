@@ -1,20 +1,3 @@
-/*		=================================
-**		==== Simple Table Controller ====
-**		=================================
-**
-**
-**			With Pure JavaScript .. 
-**	 
-**
-**		No Libraries or Frameworks needed!
-**
-**
-**				fb.com/bastony
-**	
-*/
-
-
-
 // get the table element
 var $table = document.getElementById("myTable"),
 // number of rows per page
