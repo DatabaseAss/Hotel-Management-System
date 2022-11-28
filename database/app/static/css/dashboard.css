@@ -87,11 +87,15 @@ html{
 .dropdown button:hover{
     border:solid 1px #acacac;
 }
+.dropdown-menu a:hover{
+  background-color: #acacac;
+}
 
 .header .icon{
-    margin-left:41em;
+    margin-left:40em;
     margin-top:.6em;
     font-size: 25px;
+    display: flex;
 }
 .user{
     font-size: 38px;
@@ -100,6 +104,22 @@ html{
     margin: 0em .4em;
     color: #676767;
 }
+.icon .dropdown{
+  margin-left:-5em;
+  margin-top:-1.2em;
+  width:auto;
+}
+.icon .dropdown button{
+  width:auto;
+  border:none;
+}
+.icon .dropdown-menu{
+  margin-left:-5em;
+}
+.icon .dropdown-menu a{
+  width:auto;
+}
+
 
 /*board*/
 .board{
@@ -240,6 +260,31 @@ table {
     letter-spacing: .1em;
     text-transform: uppercase;
   }
+  #buttons{
+    margin-left:55em;
+    margin-top:1em;
+  }
+  input[type="button"] {
+    transition: all .3s;
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+  
+  input[type="button"]:not(.active) {
+    background-color:transparent;
+  }
+  
+  .active {
+    background-color: #acacac;
+    color :#fff;
+  }
+  
+  input[type="button"]:hover:not(.active) {
+    background-color: #ddd;
+  }
 
   @media screen and (max-width: 600px) {
     table {
@@ -352,3 +397,15 @@ table {
     background-color: #d2d2d2;
     margin:.5em .5em;
   }
+
+
+
+
+
+
+
+
+
+  
+  
+  
