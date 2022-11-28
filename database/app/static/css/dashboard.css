@@ -245,7 +245,7 @@ table {
     padding: .35em;
   }
   table tr:hover {
-    background-color: #acacac;
+    background-color: #ebebeb;
 
   }
 
@@ -253,6 +253,14 @@ table {
   table td {
     padding: .625em;
     text-align: center;
+  }
+
+  tr:hover {
+    background-color: #F2F2F2;
+  }
+
+  .hidden_row {
+    display: none;
   }
 
   table th {
