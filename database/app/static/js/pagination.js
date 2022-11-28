@@ -1,7 +1,7 @@
 // get the table element
 var $table = document.getElementById("myTable"),
 // number of rows per page
-$n = 5,
+$n = 10,
 // number of rows of the table
 $rowCount = $table.rows.length,
 // get the first cell's tag name (in the first row)
