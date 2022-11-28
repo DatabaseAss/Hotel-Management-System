@@ -20,8 +20,8 @@ class Bedinfo(models.Model):
 
 
 class Bill(models.Model):
-    id = models.AutoField(db_column='ID')  # Field name made lowercase.
-    billid = models.CharField(db_column='BILLID', primary_key=True, max_length=16, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
+    id = models.AutoField(db_column='ID',primary_key=True)  # Field name made lowercase.
+    billid = models.CharField(db_column='BILLID', max_length=16, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
     bill_checkin = models.TimeField(db_column='BILL_CHECKIN')  # Field name made lowercase.
     bill_checkout = models.TimeField(db_column='BILL_CHECKOUT')  # Field name made lowercase.
     bill_bookingid = models.ForeignKey('Receipt', models.DO_NOTHING, db_column='BILL_BOOKINGID')  # Field name made lowercase.
@@ -122,7 +122,7 @@ class Estate(models.Model):
 
 class HiringRoom(models.Model):
     hr_bookingid = models.OneToOneField('Receipt', models.DO_NOTHING, db_column='HR_BOOKINGID', primary_key=True)  # Field name made lowercase.
-    hr_branchid = models.ForeignKey('Room', models.DO_NOTHING, db_column='HR_BRANCHID')  # Field name made lowercase.
+    hr_branchid = models.ForeignKey('Room', models.DO_NOTHING, db_column='HR_BRANCHID',related_name='hr_branchid')  # Field name made lowercase.
     hr_roomid = models.ForeignKey('Room', models.DO_NOTHING, db_column='HR_ROOMID')  # Field name made lowercase.
 
     class Meta:
@@ -171,7 +171,7 @@ class Receipt(models.Model):
 
 
 class Room(models.Model):
-    room_branchid = models.OneToOneField('Zones', models.DO_NOTHING, db_column='ROOM_BRANCHID', primary_key=True)  # Field name made lowercase.
+    room_branchid = models.OneToOneField('Zones', models.DO_NOTHING, db_column='ROOM_BRANCHID', primary_key=True,related_name='room_branchid')  # Field name made lowercase.
     roomid = models.CharField(db_column='ROOMID', max_length=3, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
     room_typeid = models.ForeignKey('Roomtype', models.DO_NOTHING, db_column='ROOM_TYPEID')  # Field name made lowercase.
     room_zname = models.ForeignKey('Zones', models.DO_NOTHING, db_column='ROOM_ZNAME')  # Field name made lowercase.
@@ -195,8 +195,8 @@ class Roomtype(models.Model):
 
 
 class Services(models.Model):
-    id = models.AutoField(db_column='ID')  # Field name made lowercase.
-    serviceid = models.CharField(db_column='SERVICEID', primary_key=True, max_length=8, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
+    id = models.AutoField(db_column='ID',primary_key=True)  # Field name made lowercase.
+    serviceid = models.CharField(db_column='SERVICEID', max_length=8, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
     service_type = models.IntegerField(db_column='SERVICE_TYPE')  # Field name made lowercase.
     service_capacity = models.IntegerField(db_column='SERVICE_CAPACITY')  # Field name made lowercase.
     style = models.CharField(db_column='STYLE', max_length=255, db_collation='SQL_Latin1_General_CP1_CI_AS', blank=True, null=True)  # Field name made lowercase.
@@ -237,7 +237,7 @@ class Spa(models.Model):
 
 
 class StorePic(models.Model):
-    spic_branchid = models.OneToOneField(Estate, models.DO_NOTHING, db_column='SPIC_BRANCHID', primary_key=True)  # Field name made lowercase.
+    spic_branchid = models.OneToOneField(Estate, models.DO_NOTHING, db_column='SPIC_BRANCHID', primary_key=True,related_name='spic_branchid')  # Field name made lowercase.
     spic = models.ForeignKey(Estate, models.DO_NOTHING, db_column='SPIC_ID')  # Field name made lowercase.
     spic_link = models.CharField(db_column='SPIC_LINK', max_length=255, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
 
@@ -260,9 +260,9 @@ class Supplier(models.Model):
 
 
 class Supply(models.Model):
-    supply_branchid = models.OneToOneField(Room, models.DO_NOTHING, db_column='SUPPLY_BRANCHID', primary_key=True)  # Field name made lowercase.
+    supply_branchid = models.OneToOneField(Room, models.DO_NOTHING, db_column='SUPPLY_BRANCHID',related_name='supply_branchid')  # Field name made lowercase.
     supplyid = models.ForeignKey('SupplyType', models.DO_NOTHING, db_column='SUPPLYID')  # Field name made lowercase.
-    stt_id = models.AutoField(db_column='STT_ID')  # Field name made lowercase.
+    stt_id = models.AutoField(db_column='STT_ID',primary_key=True)  # Field name made lowercase.
     supply_roomid = models.ForeignKey(Room, models.DO_NOTHING, db_column='SUPPLY_ROOMID')  # Field name made lowercase.
     statuss = models.CharField(db_column='STATUSS', max_length=255, db_collation='SQL_Latin1_General_CP1_CI_AS', blank=True, null=True)  # Field name made lowercase.
 
@@ -294,7 +294,7 @@ class SupplyType(models.Model):
 
 
 class TimeActivity(models.Model):
-    at_branchid = models.OneToOneField(Estate, models.DO_NOTHING, db_column='AT_BRANCHID', primary_key=True)  # Field name made lowercase.
+    at_branchid = models.OneToOneField(Estate, models.DO_NOTHING, db_column='AT_BRANCHID', primary_key=True,related_name='at_branchid')  # Field name made lowercase.
     at = models.ForeignKey(Estate, models.DO_NOTHING, db_column='AT_ID')  # Field name made lowercase.
     at_start_time = models.TimeField(db_column='AT_START_TIME')  # Field name made lowercase.
     at_end_time = models.TimeField(db_column='AT_END_TIME')  # Field name made lowercase.
