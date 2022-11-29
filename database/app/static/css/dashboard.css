@@ -261,7 +261,57 @@ table {
 
   .hidden_row {
     display: none;
+    padding-bottom:3em;
+
   }
+  .hidden_row .holder{
+    height:25em;
+    width:70em;
+    margin-top:3em;
+    margin-left:6em;
+    border-radius: 10px;
+    background-color: #f3f3f3;
+    z-index:99;
+    display: flex;
+    padding: 2em;
+  }
+  .hidden_row .holder #name{
+    height:100%;
+    width: 30%;
+    background-color: #cccccc;
+    border-radius: 10px;
+    margin:0em 1em;
+    padding:2em;
+  }
+  .hidden_row .holder #name .ans{
+    height:2em;
+    width:15em;
+    background-color: #acacac;
+    border-radius: 10px;
+    padding:.2em 1em;
+  }
+  
+  .hidden_row .holder #more{
+    height:100%;
+    width: 70%;
+    background-color: #cccccc;
+    border-radius: 10px;
+    margin:0em 1em;
+    padding:1em 2em;
+  }
+  .hidden_row .holder #more .ans{
+    height:2em;
+    width:15em;
+    background-color: #acacac;
+    border-radius: 10px;
+    padding:.2em 1em;
+  }
+
+
+
+
+
+
 
   table th {
     font-size: .85em;
@@ -293,119 +343,6 @@ table {
   input[type="button"]:hover:not(.active) {
     background-color: #ddd;
   }
-
-  @media screen and (max-width: 600px) {
-    table {
-      border: 0;
-    }
-
-    table caption {
-      font-size: 1.3em;
-    }
-
-    table thead {
-      border: none;
-      clip: rect(0 0 0 0);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      width: 1px;
-    }
-
-    table tr {
-      border-bottom: 3px solid #ddd;
-      display: block;
-      margin-bottom: .625em;
-    }
-
-    table td {
-      border-bottom: 1px solid #ddd;
-      display: block;
-      font-size: .8em;
-      text-align: right;
-    }
-
-    table td::before {
-      /*
-      * aria-label has no advantage, it won't be read inside a table
-      content: attr(aria-label);
-      */
-      content: attr(data-label);
-      float: left;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-
-    table td:last-child {
-      border-bottom: 0;
-    }
-  }
-
-/*popup*/
-
-
-.popup {
-    position: relative;
-    cursor: pointer;
-  }
-  
-  /* The actual popup (appears on top) */
-  .popup .popuptext {
-    visibility: hidden;
-    width: 30em;
-    height:35em;
-    margin-left:-50em;
-    margin-top:-25em;
-    background-color: rgb(230, 230, 230);
-    color: #444444;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    box-shadow:0 0 0 10000px rgba(0,0,0,.50);
-
-  }
-  
-
-  
-  /* Toggle this class when clicking on the popup container (hide and show the popup) */
-  .popup .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s
-  }
-  
-  /* Add animation (fade in the popup) */
-  @-webkit-keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
-  
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-  }
-  
-  .service-info{
-    display: flex;
-    padding-top:.5em;
-    padding-left:1em;
-  }
-  .service-info h5{
-    margin-right:6em;
-  }
-  .check{
-    display: flex;
-    justify-content: center;
-    padding-top:1em;
-    padding-left:0em;
-    background-color: #d2d2d2;
-    margin:.5em .5em;
-  }
-
 
 
 

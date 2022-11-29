@@ -127,7 +127,7 @@ html{
     background-color: #5f5f5f;
 }
 .info-holder{
-    height:50em;
+    height:auto;
     width:78em;
     background-color: #e4e4e4;
     border-radius: 15px;
@@ -197,3 +197,48 @@ html{
     margin-top:-8em;
     margin-left:10.5em;
 }
+
+
+
+
+.bed{
+    margin-top:1em;
+}
+#bed .ans1, #bed .ans2{
+    width:17em;
+}
+#bed td{
+    padding-bottom:1em;
+}
+.bed button{
+    height:2.5em;
+    width:12em;
+    border-radius: 10px;
+    background-color: #767676;
+    margin-top:1em;
+    border:none;
+    font-weight: bold;
+    color:white;
+}
+
+.supply{
+    margin-top:1em;
+    margin-left:4em;
+}
+#supply .ans1, #supply .ans2{
+    width:16.75em;
+}
+#supply td{
+    padding-bottom:1em;
+}
+.supply button{
+    height:2.5em;
+    width:12em;
+    border-radius: 10px;
+    background-color: #767676;
+    margin-top:1em;
+    border:none;
+    font-weight: bold;
+    color:white;
+}
+
