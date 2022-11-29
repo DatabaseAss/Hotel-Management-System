@@ -43,8 +43,8 @@
           <a href="/"><i class="fa-solid fa-message"></i></a>
           <a href="/"><i class="fa-solid fa-bell"></i></a>
           <div class="dropdown">
-            <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
+            <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
               <a href="/"><i class="fa-solid fa-circle-user user"></i></a>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -61,44 +61,67 @@
         <h4><b>DASHBOARD</b></h4>
         <div class="general">
           <div class="item">
-              <p><b> <i class="fa-solid fa-table-columns"></i> Total Client</b></p>
-              <h4><b>12546</b></h4>
-              <h5><b>clients</b></h5>
+            <p><b> <i class="fa-solid fa-table-columns"></i> Total Client</b></p>
+            <h4><b>{{total_customers}}</b></h4>
+            <h5><b>clients</b></h5>
           </div>
           <div class="item">
-              <p><b> <i class="fa-solid fa-cube"></i> Total Packages Registered</b></p>
-              <h4><b>985</b></h4>
-              <h5><b>packages</b></h5>
+            <p><b> <i class="fa-solid fa-cube"></i> Total Packages Registered</b></p>
+            <h4><b>{{total_package}}</b></h4>
+            <h5><b>packages</b></h5>
           </div>
           <div class="item">
-              <p><b> <i class="fa-solid fa-calendar-days"></i> Highest record</b></p>
-              <h4><b>Feb</b></h4>
-              <h5><b>985 bookings</b></h5>
+            <p><b> <i class="fa-solid fa-calendar-days"></i> Highest record</b></p>
+            <h4><b>Feb</b></h4>
+            <h5><b>{{total_package}} bookings</b></h5>
           </div>
         </div>
         <div class="board-main">
           <div id="demoB" class="vbar">
-            <div style="height: 33%;"><p>125</p>Jan</div>
-            <div style="height: 100%;"><p>1225</p>Feb</div>
-            <div style="height: 70%;"><p>785</p>Mar</div>
-            <div style="height: 33%;"><p>155</p>Apr</div>
-            <div style="height: 100%;"><p>85</p>May</div>
-            <div style="height: 70%;"><p>255</p>June</div>
-            <div style="height: 33%;"><p>215</p>July</div>
-            <div style="height: 100%;"><p>158</p>Aug</div>
-            <div style="height: 70%;"><p>135</p>Sept</div>
-            <div style="height: 33%;"><p>145</p>Oct</div>
-            <div style="height: 100%;"><p>123</p>Nov</div>
-            <div style="height: 70%;"><p>89</p>Dec</div>
+            <div style="height: 33%;">
+              <p>125</p>Jan
+            </div>
+            <div style="height: 100%;">
+              <p>1225</p>Feb
+            </div>
+            <div style="height: 70%;">
+              <p>785</p>Mar
+            </div>
+            <div style="height: 33%;">
+              <p>155</p>Apr
+            </div>
+            <div style="height: 100%;">
+              <p>85</p>May
+            </div>
+            <div style="height: 70%;">
+              <p>255</p>June
+            </div>
+            <div style="height: 33%;">
+              <p>215</p>July
+            </div>
+            <div style="height: 100%;">
+              <p>158</p>Aug
+            </div>
+            <div style="height: 70%;">
+              <p>135</p>Sept
+            </div>
+            <div style="height: 33%;">
+              <p>145</p>Oct
+            </div>
+            <div style="height: 100%;">
+              <p>123</p>Nov
+            </div>
+            <div style="height: 70%;">
+              <p>89</p>Dec
+            </div>
           </div>
         </div>
       </div>
       <div class="customerList">
         <div style="display:flex;">
           <h4><b>CLIENTS INFORMATION</b></h4>
-          <form class="searching" action="action_page.php">
-            <input type="text" placeholder="Search.." name="search" 
-            style="
+          <form method='GET' class="searching" action="action_page.php">
+            <input type="text" placeholder="Search.." name="search_key" style="
             width:20em; 
             height:2.5em;
             margin-top:0em;
@@ -106,8 +129,7 @@
             margin-bottom:1em;
             border-radius: 5px 0px 0px 5px;
             border-color:#acacac;">
-            <button type="submit" 
-            style="
+            <button type="submit" style="
             width:3em;
             height:2.5em;
             margin-top:-5em;
@@ -115,7 +137,7 @@
             border-radius: 0px 5px 5px 0px; 
             background-color: #acacac;
             border-color: #acacac;
-            color:white;"><i class="fa fa-search" ></i></button>
+            color:white;"><i class="fa fa-search"></i></button>
           </form>
         </div>
         <table id="myTable">
@@ -128,205 +150,26 @@
             <th>Point</th>
             <th>Rank</th>
           </tr>
+          {%for customer in customers %}
           <tr onclick="showHideRow('hidden_row1');">
-            <td>0124</td>
-            <td>User name</td>
-            <td>username</td>
-            <td>username@gmail.com</td>
-            <td>0123456789</td>
-            <td>1254</td>
+            <td>{{customer.customerid}}</td>
+            <td>{{customer.fullanme}}</td>
+            <td>{{customer.username}}</td>
+            <td>{{customer.email}}</td>
+            <td>{{customer.phonenumber}}</td>
+            <td>{{customer.points}}</td>
+            {% if customer.ctype == 1 %}
+            <td>Potential</td>
+            {% elif customer.ctype == 2 %}
+            <td>Regular</td>
+            {% elif customer.ctype == 3 %}
             <td>VIP</td>
+            {% elif customer.ctype == 4 %}
+            <td>SuperVIP</td>
+            {%endif%}
           </tr>
-          <tr id="hidden_row1" class="hidden_row">
-            <td>Ticket ID <p>0123</p></td>
-            <td>Booking date <p>01/01/2002</p></td>
-            <td>Number of guests<p>23</p></td>
-            <td>Depart-date<p>01/01/2002</p></td>
-            <td>Leave-date<p>01/01/2002</p></td>
-            <td>Total cost<p>$123</p></td>
-            <td>Status<p>Free</p></td>
-          </tr>
-          <tr onclick="showHideRow('hidden_row2');">
-            <td>0124</td>
-            <td>User name</td>
-            <td>username</td>
-            <td>username@gmail.com</td>
-            <td>0123456789</td>
-            <td>1254</td>
-            <td>VIP</td>
-          </tr>
-          <tr id="hidden_row2" class="hidden_row">
-            <td>Ticket ID <p>0123</p></td>
-            <td>Booking date <p>01/01/2002</p></td>
-            <td>Number of guests<p>23</p></td>
-            <td>Depart-date<p>01/01/2002</p></td>
-            <td>Leave-date<p>01/01/2002</p></td>
-            <td>Total cost<p>$123</p></td>
-            <td>Status<p>Free</p></td>
-          </tr>
-          <tr onclick="showHideRow('hidden_row3');">
-            <td>0124</td>
-            <td>User name</td>
-            <td>username</td>
-            <td>username@gmail.com</td>
-            <td>0123456789</td>
-            <td>1254</td>
-            <td>VIP</td>
-          </tr>
-          <tr id="hidden_row3" class="hidden_row">
-            <td>Ticket ID <p>0123</p></td>
-            <td>Booking date <p>01/01/2002</p></td>
-            <td>Number of guests<p>23</p></td>
-            <td>Depart-date<p>01/01/2002</p></td>
-            <td>Leave-date<p>01/01/2002</p></td>
-            <td>Total cost<p>$123</p></td>
-            <td>Status<p>Free</p></td>
-          </tr>
-          <tr onclick="showHideRow('hidden_row4');">
-            <td>0124</td>
-            <td>User name</td>
-            <td>username</td>
-            <td>username@gmail.com</td>
-            <td>0123456789</td>
-            <td>1254</td>
-            <td>VIP</td>
-          </tr>
-          <tr id="hidden_row4" class="hidden_row">
-            <td>Ticket ID <p>0123</p></td>
-            <td>Booking date <p>01/01/2002</p></td>
-            <td>Number of guests<p>23</p></td>
-            <td>Depart-date<p>01/01/2002</p></td>
-            <td>Leave-date<p>01/01/2002</p></td>
-            <td>Total cost<p>$123</p></td>
-            <td>Status<p>Free</p></td>
-          </tr>
-          <tr onclick="showHideRow('hidden_row5');">
-            <td>0124</td>
-            <td>User name</td>
-            <td>username</td>
-            <td>username@gmail.com</td>
-            <td>0123456789</td>
-            <td>1254</td>
-            <td>VIP</td>
-          </tr>
-          <tr id="hidden_row5" class="hidden_row">
-            <td>Ticket ID <p>0123</p></td>
-            <td>Booking date <p>01/01/2002</p></td>
-            <td>Number of guests<p>23</p></td>
-            <td>Depart-date<p>01/01/2002</p></td>
-            <td>Leave-date<p>01/01/2002</p></td>
-            <td>Total cost<p>$123</p></td>
-            <td>Status<p>Free</p></td>
-          </tr>
-          <tr onclick="showHideRow('hidden_row6');">
-            <td>0124</td>
-            <td>User name</td>
-            <td>username</td>
-            <td>username@gmail.com</td>
-            <td>0123456789</td>
-            <td>1254</td>
-            <td>VIP</td>
-          </tr>
-          <tr id="hidden_row6" class="hidden_row">
-            <td>Ticket ID <p>0123</p></td>
-            <td>Booking date <p>01/01/2002</p></td>
-            <td>Number of guests<p>23</p></td>
-            <td>Depart-date<p>01/01/2002</p></td>
-            <td>Leave-date<p>01/01/2002</p></td>
-            <td>Total cost<p>$123</p></td>
-            <td>Status<p>Free</p></td>
-          </tr>
-          <tr onclick="showHideRow('hidden_row7');">
-            <td>0124</td>
-            <td>User name</td>
-            <td>username</td>
-            <td>username@gmail.com</td>
-            <td>0123456789</td>
-            <td>1254</td>
-            <td>VIP</td>
-          </tr>
-          <tr id="hidden_row7" class="hidden_row">
-            <td>Ticket ID <p>0123</p></td>
-            <td>Booking date <p>01/01/2002</p></td>
-            <td>Number of guests<p>23</p></td>
-            <td>Depart-date<p>01/01/2002</p></td>
-            <td>Leave-date<p>01/01/2002</p></td>
-            <td>Total cost<p>$123</p></td>
-            <td>Status<p>Free</p></td>
-          </tr>
-          <tr onclick="showHideRow('hidden_row8');">
-            <td>0124</td>
-            <td>User name</td>
-            <td>username</td>
-            <td>username@gmail.com</td>
-            <td>0123456789</td>
-            <td>1254</td>
-            <td>VIP</td>
-          </tr>
-          <tr id="hidden_row8" class="hidden_row">
-            <td>Ticket ID <p>0123</p></td>
-            <td>Booking date <p>01/01/2002</p></td>
-            <td>Number of guests<p>23</p></td>
-            <td>Depart-date<p>01/01/2002</p></td>
-            <td>Leave-date<p>01/01/2002</p></td>
-            <td>Total cost<p>$123</p></td>
-            <td>Status<p>Free</p></td>
-          </tr>
-          <tr onclick="showHideRow('hidden_row9');">
-            <td>0124</td>
-            <td>User name</td>
-            <td>username</td>
-            <td>username@gmail.com</td>
-            <td>0123456789</td>
-            <td>1254</td>
-            <td>VIP</td>
-          </tr>
-          <tr id="hidden_row9" class="hidden_row">
-            <td>Ticket ID <p>0123</p></td>
-            <td>Booking date <p>01/01/2002</p></td>
-            <td>Number of guests<p>23</p></td>
-            <td>Depart-date<p>01/01/2002</p></td>
-            <td>Leave-date<p>01/01/2002</p></td>
-            <td>Total cost<p>$123</p></td>
-            <td>Status<p>Free</p></td>
-          </tr>
-          <tr onclick="showHideRow('hidden_row10');">
-            <td>0124</td>
-            <td>User name</td>
-            <td>username</td>
-            <td>username@gmail.com</td>
-            <td>0123456789</td>
-            <td>1254</td>
-            <td>VIP</td>
-          </tr>
-          <tr id="hidden_row10" class="hidden_row">
-            <td>Ticket ID <p>0123</p></td>
-            <td>Booking date <p>01/01/2002</p></td>
-            <td>Number of guests<p>23</p></td>
-            <td>Depart-date<p>01/01/2002</p></td>
-            <td>Leave-date<p>01/01/2002</p></td>
-            <td>Total cost<p>$123</p></td>
-            <td>Status<p>Free</p></td>
-          </tr>
-          <tr onclick="showHideRow('hidden_row11');">
-            <td>0124</td>
-            <td>User name</td>
-            <td>username</td>
-            <td>username@gmail.com</td>
-            <td>0123456789</td>
-            <td>1254</td>
-            <td>VIP</td>
-          </tr>
-          <tr id="hidden_row11" class="hidden_row">
-            <td>Ticket ID <p>0123</p></td>
-            <td>Booking date <p>01/01/2002</p></td>
-            <td>Number of guests<p>23</p></td>
-            <td>Depart-date<p>01/01/2002</p></td>
-            <td>Leave-date<p>01/01/2002</p></td>
-            <td>Total cost<p>$123</p></td>
-            <td>Status<p>Free</p></td>
-          </tr>
-        </table>  
+          {%endfor%}
+        </table>
       </div>
     </div>
   </div>
@@ -338,7 +181,7 @@
 
   <script type="text/javascript">
     function showHideRow(row) {
-        $("#" + row).toggle();
+      $("#" + row).toggle();
     }
   </script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

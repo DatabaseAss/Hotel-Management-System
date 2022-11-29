@@ -80,14 +80,27 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        'USERNAME': 'hoang\hoang277',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'USERNAME': 'hoang\hoang277',
 
+#     }
+# }
+DATABASES = {
+    'default':{
+        'ENGINE': 'mssql',
+        'NAME': 'db_ass',
+        'USERNAME': 'hoang',
+        'PASSWORD': 'Hoang#2002',
+        'HOST': 'DESKTOP-PDOP3R0\MSSQLSERVER01',
+        'PORT': '',
+        'OPTIONS':{
+            'driver': 'ODBC Driver 17 for SQL Server',
+        },
+    },
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

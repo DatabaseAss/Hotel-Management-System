@@ -21,7 +21,7 @@ class Bedinfo(models.Model):
 
 class Bill(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
-    billid = models.CharField(db_column='BILLID', max_length=16, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
+    billid = models.CharField(db_column='BILLID', unique=True, max_length=16, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
     bill_checkin = models.TimeField(db_column='BILL_CHECKIN')  # Field name made lowercase.
     bill_checkout = models.TimeField(db_column='BILL_CHECKOUT')  # Field name made lowercase.
     bill_bookingid = models.ForeignKey('Receipt', models.DO_NOTHING, db_column='BILL_BOOKINGID')  # Field name made lowercase.
@@ -35,6 +35,7 @@ class BillService(models.Model):
     bill_customerid = models.OneToOneField('Customer', models.DO_NOTHING, db_column='BILL_CUSTOMERID', primary_key=True)  # Field name made lowercase.
     bill_package_name = models.ForeignKey('Package', models.DO_NOTHING, db_column='BILL_PACKAGE_NAME')  # Field name made lowercase.
     date_buy = models.DateTimeField(db_column='DATE_BUY')  # Field name made lowercase.
+    used_date = models.IntegerField(db_column='USED_DATE', blank=True, null=True)  # Field name made lowercase.
     start_day = models.DateTimeField(db_column='START_DAY')  # Field name made lowercase.
     total_cost_kvnd_field = models.IntegerField(db_column='TOTAL_COST (kVND)')  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
 
@@ -59,13 +60,13 @@ class Branch(models.Model):
 
 class BranchHaveRoomtype(models.Model):
     bhr_branchid = models.OneToOneField(Branch, models.DO_NOTHING, db_column='BHR_BRANCHID', primary_key=True)  # Field name made lowercase.
-    bhd_typeid = models.ForeignKey('Roomtype', models.DO_NOTHING, db_column='BHD_TYPEID')  # Field name made lowercase.
+    bhr_typeid = models.ForeignKey('Roomtype', models.DO_NOTHING, db_column='BHR_TYPEID')  # Field name made lowercase.
     price_kvnd_field = models.IntegerField(db_column='PRICE (kVND)')  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
 
     class Meta:
         managed = False
         db_table = 'BRANCH_HAVE_ROOMTYPE'
-        unique_together = (('bhr_branchid', 'bhd_typeid'),)
+        unique_together = (('bhr_branchid', 'bhr_typeid'),)
 
 
 class BranchImg(models.Model):
@@ -113,6 +114,7 @@ class Estate(models.Model):
     info = models.CharField(db_column='INFO', max_length=255, db_collation='SQL_Latin1_General_CP1_CI_AS', blank=True, null=True)  # Field name made lowercase.
     estate_serviceid = models.ForeignKey('Services', models.DO_NOTHING, db_column='ESTATE_SERVICEID')  # Field name made lowercase.
     link = models.CharField(db_column='LINK', max_length=255, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
+    storename = models.CharField(db_column='STORENAME', max_length=255, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -121,14 +123,14 @@ class Estate(models.Model):
 
 
 class HiringRoom(models.Model):
-    hr_bookingid = models.OneToOneField('Receipt', models.DO_NOTHING, db_column='HR_BOOKINGID', primary_key=True)  # Field name made lowercase.
-    hr_branchid = models.ForeignKey('Room', models.DO_NOTHING, db_column='HR_BRANCHID',related_name='hr_branchid')  # Field name made lowercase.
+    hr_bookingid = models.ForeignKey('Receipt', models.DO_NOTHING, db_column='HR_BOOKINGID')  # Field name made lowercase.
+    hr_branchid = models.OneToOneField('Room', models.DO_NOTHING, db_column='HR_BRANCHID', primary_key=True,related_name='hr_branchid')  # Field name made lowercase.
     hr_roomid = models.ForeignKey('Room', models.DO_NOTHING, db_column='HR_ROOMID')  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'HIRING_ROOM'
-        unique_together = (('hr_bookingid', 'hr_branchid', 'hr_roomid'),)
+        unique_together = (('hr_branchid', 'hr_bookingid', 'hr_roomid'),)
 
 
 class Package(models.Model):
@@ -171,7 +173,7 @@ class Receipt(models.Model):
 
 
 class Room(models.Model):
-    room_branchid = models.OneToOneField('Zones', models.DO_NOTHING, db_column='ROOM_BRANCHID', primary_key=True, related_name='room_branchid')  # Field name made lowercase.
+    room_branchid = models.OneToOneField('Zones', models.DO_NOTHING, db_column='ROOM_BRANCHID', primary_key=True,related_name='room_branchid')  # Field name made lowercase.
     roomid = models.CharField(db_column='ROOMID', max_length=3, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
     room_typeid = models.ForeignKey('Roomtype', models.DO_NOTHING, db_column='ROOM_TYPEID')  # Field name made lowercase.
     room_zname = models.ForeignKey('Zones', models.DO_NOTHING, db_column='ROOM_ZNAME')  # Field name made lowercase.
@@ -196,7 +198,7 @@ class Roomtype(models.Model):
 
 class Services(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
-    serviceid = models.CharField(db_column='SERVICEID', max_length=8, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
+    serviceid = models.CharField(db_column='SERVICEID', unique=True, max_length=8, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
     service_type = models.IntegerField(db_column='SERVICE_TYPE')  # Field name made lowercase.
     service_capacity = models.IntegerField(db_column='SERVICE_CAPACITY')  # Field name made lowercase.
     style = models.CharField(db_column='STYLE', max_length=255, db_collation='SQL_Latin1_General_CP1_CI_AS', blank=True, null=True)  # Field name made lowercase.
@@ -260,7 +262,7 @@ class Supplier(models.Model):
 
 
 class Supply(models.Model):
-    supply_branchid = models.OneToOneField(Room, models.DO_NOTHING, db_column='SUPPLY_BRANCHID', related_name='supply_branchid')  # Field name made lowercase.
+    supply_branchid = models.OneToOneField(Room, models.DO_NOTHING, db_column='SUPPLY_BRANCHID',related_name='supply_branchid')  # Field name made lowercase.
     supplyid = models.ForeignKey('SupplyType', models.DO_NOTHING, db_column='SUPPLYID')  # Field name made lowercase.
     stt_id = models.AutoField(db_column='STT_ID', primary_key=True)  # Field name made lowercase.
     supply_roomid = models.ForeignKey(Room, models.DO_NOTHING, db_column='SUPPLY_ROOMID')  # Field name made lowercase.
@@ -294,7 +296,7 @@ class SupplyType(models.Model):
 
 
 class TimeActivity(models.Model):
-    at_branchid = models.OneToOneField(Estate, models.DO_NOTHING, db_column='AT_BRANCHID', primary_key=True, related_name='at_branchid')  # Field name made lowercase.
+    at_branchid = models.OneToOneField(Estate, models.DO_NOTHING, db_column='AT_BRANCHID', primary_key=True,related_name='at_branchid')  # Field name made lowercase.
     at = models.ForeignKey(Estate, models.DO_NOTHING, db_column='AT_ID')  # Field name made lowercase.
     at_start_time = models.TimeField(db_column='AT_START_TIME')  # Field name made lowercase.
     at_end_time = models.TimeField(db_column='AT_END_TIME')  # Field name made lowercase.
@@ -313,118 +315,3 @@ class Zones(models.Model):
         managed = False
         db_table = 'ZONES'
         unique_together = (('zone_branchid', 'zname'),)
-
-
-class AuthGroup(models.Model):
-    name = models.CharField(unique=True, max_length=150, db_collation='SQL_Latin1_General_CP1_CI_AS')
-
-    class Meta:
-        managed = False
-        db_table = 'auth_group'
-
-
-class AuthGroupPermissions(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
-    permission = models.ForeignKey('AuthPermission', models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'auth_group_permissions'
-        unique_together = (('group', 'permission'),)
-
-
-class AuthPermission(models.Model):
-    name = models.CharField(max_length=255, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING)
-    codename = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-
-    class Meta:
-        managed = False
-        db_table = 'auth_permission'
-        unique_together = (('content_type', 'codename'),)
-
-
-class DjangoAdminLog(models.Model):
-    action_time = models.DateTimeField()
-    object_id = models.TextField(db_collation='SQL_Latin1_General_CP1_CI_AS', blank=True, null=True)
-    object_repr = models.CharField(max_length=200, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    action_flag = models.SmallIntegerField()
-    change_message = models.TextField(db_collation='SQL_Latin1_General_CP1_CI_AS')
-    content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING, blank=True, null=True)
-    user = models.ForeignKey('UsrCustomuser', models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'django_admin_log'
-
-
-class DjangoContentType(models.Model):
-    app_label = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    model = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-
-    class Meta:
-        managed = False
-        db_table = 'django_content_type'
-        unique_together = (('app_label', 'model'),)
-
-
-class DjangoMigrations(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    app = models.CharField(max_length=255, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    name = models.CharField(max_length=255, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    applied = models.DateTimeField()
-
-    class Meta:
-        managed = False
-        db_table = 'django_migrations'
-
-
-class DjangoSession(models.Model):
-    session_key = models.CharField(primary_key=True, max_length=40, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    session_data = models.TextField(db_collation='SQL_Latin1_General_CP1_CI_AS')
-    expire_date = models.DateTimeField()
-
-    class Meta:
-        managed = False
-        db_table = 'django_session'
-
-
-class UsrCustomuser(models.Model):
-    password = models.CharField(max_length=128, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    last_login = models.DateTimeField(blank=True, null=True)
-    fullname = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    date_of_birth = models.DateField()
-    phone_number = models.CharField(max_length=20, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    email = models.CharField(max_length=254, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    username = models.CharField(primary_key=True, max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    date_joined = models.DateTimeField()
-    is_active = models.BooleanField()
-    is_staff = models.BooleanField()
-    is_superuser = models.BooleanField()
-
-    class Meta:
-        managed = False
-        db_table = 'usr_customuser'
-
-
-class UsrCustomuserGroups(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    customuser = models.ForeignKey(UsrCustomuser, models.DO_NOTHING)
-    group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'usr_customuser_groups'
-        unique_together = (('customuser', 'group'),)
-
-
-class UsrCustomuserUserPermissions(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    customuser = models.ForeignKey(UsrCustomuser, models.DO_NOTHING)
-    permission = models.ForeignKey(AuthPermission, models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'usr_customuser_user_permissions'
-        unique_together = (('customuser', 'permission'),)
