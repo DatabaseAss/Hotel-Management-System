@@ -199,7 +199,7 @@ class Roomtype(models.Model):
 class Services(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
     serviceid = models.CharField(db_column='SERVICEID', unique=True, max_length=8, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
-    service_type = models.IntegerField(db_column='SERVICE_TYPE')  # Field name made lowercase.
+    service_type = models.CharField(db_column='SERVICE_TYPE', max_length=1, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
     service_capacity = models.IntegerField(db_column='SERVICE_CAPACITY')  # Field name made lowercase.
     style = models.CharField(db_column='STYLE', max_length=255, db_collation='SQL_Latin1_General_CP1_CI_AS', blank=True, null=True)  # Field name made lowercase.
     companyid = models.ForeignKey(Company, models.DO_NOTHING, db_column='COMPANYID')  # Field name made lowercase.
