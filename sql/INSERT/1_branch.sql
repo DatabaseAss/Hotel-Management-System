@@ -1,6 +1,7 @@
-USE db_ass
+USE db_ass;
 GO
 
+INSERT INTO BRANCH(PROVINCE,ADDR,PHONE,MAIL) VALUES('Ha Giang','152, A street',899829341,'CN1@resort.io')
 INSERT INTO BRANCH(PROVINCE,ADDR,PHONE,MAIL) VALUES('Da Nang','36 Lam Hoanh, Phuoc My ward, Son Tra district',999289962,'CN2@resort.io')
 INSERT INTO BRANCH(PROVINCE,ADDR,PHONE,MAIL) VALUES('Buon Me Thuat','3 Phan Chu Trinh, Buon Me Thuat',896218059,'CN3@resort.io')
 INSERT INTO BRANCH(PROVINCE,ADDR,PHONE,MAIL) VALUES('Sai Gon','76 Le Lai, Ben Thanh ward, district 1',559328587,'CN4@resort.io')

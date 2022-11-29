@@ -157,7 +157,7 @@ class ProvideSupply(models.Model):
 
 class Receipt(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
-    receipt_bookingid = models.CharField(db_column='RECEIPT_BOOKINGID', unique=True, max_length=16, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
+    receipt_bookingid = models.CharField(db_column='RECEIPT_BOOKINGID', max_length=16, db_collation='SQL_Latin1_General_CP1_CI_AS', blank=True, null=True)  # Field name made lowercase.
     booking_time = models.DateTimeField(db_column='BOOKING_TIME')  # Field name made lowercase.
     checkin = models.DateTimeField(db_column='CHECKIN')  # Field name made lowercase.
     checkout = models.DateTimeField(db_column='CHECKOUT')  # Field name made lowercase.
@@ -199,7 +199,7 @@ class Roomtype(models.Model):
 class Services(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
     serviceid = models.CharField(db_column='SERVICEID', unique=True, max_length=8, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
-    service_type = models.IntegerField(db_column='SERVICE_TYPE')  # Field name made lowercase.
+    service_type = models.CharField(db_column='SERVICE_TYPE', max_length=1, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
     service_capacity = models.IntegerField(db_column='SERVICE_CAPACITY')  # Field name made lowercase.
     style = models.CharField(db_column='STYLE', max_length=255, db_collation='SQL_Latin1_General_CP1_CI_AS', blank=True, null=True)  # Field name made lowercase.
     companyid = models.ForeignKey(Company, models.DO_NOTHING, db_column='COMPANYID')  # Field name made lowercase.
@@ -315,3 +315,118 @@ class Zones(models.Model):
         managed = False
         db_table = 'ZONES'
         unique_together = (('zone_branchid', 'zname'),)
+
+
+class AuthGroup(models.Model):
+    name = models.CharField(unique=True, max_length=150, db_collation='SQL_Latin1_General_CP1_CI_AS')
+
+    class Meta:
+        managed = False
+        db_table = 'auth_group'
+
+
+class AuthGroupPermissions(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
+    permission = models.ForeignKey('AuthPermission', models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_group_permissions'
+        unique_together = (('group', 'permission'),)
+
+
+class AuthPermission(models.Model):
+    name = models.CharField(max_length=255, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING)
+    codename = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
+
+    class Meta:
+        managed = False
+        db_table = 'auth_permission'
+        unique_together = (('content_type', 'codename'),)
+
+
+class DjangoAdminLog(models.Model):
+    action_time = models.DateTimeField()
+    object_id = models.TextField(db_collation='SQL_Latin1_General_CP1_CI_AS', blank=True, null=True)
+    object_repr = models.CharField(max_length=200, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    action_flag = models.SmallIntegerField()
+    change_message = models.TextField(db_collation='SQL_Latin1_General_CP1_CI_AS')
+    content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING, blank=True, null=True)
+    user = models.ForeignKey('UsrCustomuser', models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'django_admin_log'
+
+
+class DjangoContentType(models.Model):
+    app_label = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    model = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
+
+    class Meta:
+        managed = False
+        db_table = 'django_content_type'
+        unique_together = (('app_label', 'model'),)
+
+
+class DjangoMigrations(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    app = models.CharField(max_length=255, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    name = models.CharField(max_length=255, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    applied = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'django_migrations'
+
+
+class DjangoSession(models.Model):
+    session_key = models.CharField(primary_key=True, max_length=40, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    session_data = models.TextField(db_collation='SQL_Latin1_General_CP1_CI_AS')
+    expire_date = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'django_session'
+
+
+class UsrCustomuser(models.Model):
+    password = models.CharField(max_length=128, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    last_login = models.DateTimeField(blank=True, null=True)
+    fullname = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    date_of_birth = models.DateField()
+    phone_number = models.CharField(max_length=20, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    email = models.CharField(max_length=254, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    username = models.CharField(primary_key=True, max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    date_joined = models.DateTimeField()
+    is_active = models.BooleanField()
+    is_staff = models.BooleanField()
+    is_superuser = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'usr_customuser'
+
+
+class UsrCustomuserGroups(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    customuser = models.ForeignKey(UsrCustomuser, models.DO_NOTHING)
+    group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'usr_customuser_groups'
+        unique_together = (('customuser', 'group'),)
+
+
+class UsrCustomuserUserPermissions(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    customuser = models.ForeignKey(UsrCustomuser, models.DO_NOTHING)
+    permission = models.ForeignKey(AuthPermission, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'usr_customuser_user_permissions'
+        unique_together = (('customuser', 'permission'),)
