@@ -19,6 +19,7 @@ def dashboard(request):
 
     return render(request, 'dashboard.html', context={
         'customers': customers,
+        'enumerate_customer': enumerate(customers),
         'total_customers':  total_customer,
         'total_package': total_package
     })

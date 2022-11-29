@@ -151,9 +151,9 @@
             <th>Rank</th>
           </tr>
           {%for customer in customers %}
-          <tr onclick="showHideRow('hidden_row1');">
+          <tr onclick="showHideRow('hidden_row{{forloop.counter}}');">
             <td>{{customer.customerid}}</td>
-            <td>{{customer.fullanme}}</td>
+            <td>{{customer.fullname}}</td>
             <td>{{customer.username}}</td>
             <td>{{customer.email}}</td>
             <td>{{customer.phonenumber}}</td>
@@ -170,6 +170,66 @@
           </tr>
           {%endfor%}
         </table>
+        <!--Hidden customer info-->
+        {% for customer in customers %}
+        <div id="hidden_row{{forloop.counter}}" class="hidden_row">
+          <div class="holder">
+            <div id="name">
+              <div style="display: flex;margin-bottom:1em;">
+                <div>
+                  <h5><b>Name</b></h5>
+                  <div class="ans">{{customer.fullname}}</div>
+                </div>
+              </div>
+              <div style="display: flex;margin-bottom:1em;">
+                <div>
+                  <h5><b>User ID</b></h5>
+                  <div class="ans">{{customer.customerid}}</div>
+                </div>
+              </div>
+            </div>
+            <div id="more">
+              <div style="display: flex;margin-bottom:1em;">
+                <div>
+                  <h5><b>Ticket ID</b></h5>
+                  <div class="ans">0123</div>
+                </div>
+                <div style="margin-left:5em;">
+                  <h5><b>Booking Date</b></h5>
+                  <div class="ans">01/01/2022</div>
+                </div>
+              </div>
+              <div style="display: flex;margin-bottom:1em;">
+                <div>
+                  <h5><b>Number of guest</b></h5>
+                  <div class="ans">5</div>
+                </div>
+                <div style="margin-left:5em;">
+                  <h5><b>Status</b></h5>
+                  <div class="ans">Free</div>
+                </div>
+              </div>
+              <div style="display: flex;margin-bottom:1em;">
+                <div>
+                  <h5><b>Depart Date</b></h5>
+                  <div class="ans">01/01/2022</div>
+                </div>
+                <div style="margin-left:5em;">
+                  <h5><b>Leave Date</b></h5>
+                  <div class="ans">10/01/2022</div>
+                </div>
+              </div>
+              <div style="display: flex;margin-bottom:1em;">
+                <div>
+                  <h5><b>Total Cost</b></h5>
+                  <div class="ans">$132</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {%endfor%}
+        <!----------->
       </div>
     </div>
   </div>
