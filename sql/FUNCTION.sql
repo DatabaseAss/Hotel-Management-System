@@ -78,5 +78,5 @@ RETURN
     SELECT * FROM Receipt_by_month
 )
 GO
-SELECT * FROM f_TotalGuest(4, 2022)
+SELECT * FROM f_TotalGuest(7, 2023)
 GO

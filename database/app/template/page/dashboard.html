@@ -94,43 +94,15 @@
         </div>
         <div class="board-main">
           <div id="demoB" class="vbar">
-            <div style="height: 33%;">
-              <p>125</p>Jan
+            {% for percent, guest, month in stats%}
+            <div style="height: {{percent}}%;">
+              <p>{{guest}}</p>
+              <h4>{{month}}</h4>
             </div>
-            <div style="height: 100%;">
-              <p>1225</p>Feb
-            </div>
-            <div style="height: 70%;">
-              <p>785</p>Mar
-            </div>
-            <div style="height: 33%;">
-              <p>155</p>Apr
-            </div>
-            <div style="height: 100%;">
-              <p>85</p>May
-            </div>
-            <div style="height: 70%;">
-              <p>255</p>June
-            </div>
-            <div style="height: 33%;">
-              <p>215</p>July
-            </div>
-            <div style="height: 100%;">
-              <p>158</p>Aug
-            </div>
-            <div style="height: 70%;">
-              <p>135</p>Sept
-            </div>
-            <div style="height: 33%;">
-              <p>145</p>Oct
-            </div>
-            <div style="height: 100%;">
-              <p>123</p>Nov
-            </div>
-            <div style="height: 70%;">
-              <p>89</p>Dec
-            </div>
+            {%endfor%}
           </div>
+          <h4 style="margin-top:-1.8em;margin-left:21em;"><b>Total clients</b></h4>
+
         </div>
       </div>
       <div class="customerList">
