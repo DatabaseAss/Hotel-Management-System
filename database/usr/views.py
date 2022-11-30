@@ -57,6 +57,6 @@ def registerUser(request):
             user = CustomUser.objects.create_user(fullname = full_name, username = username, password = password)
             user.save()
             login(request, user, backend='django.contrib.auth.backend.ModelBackend')
-            return redirect('/profile')
+            return redirect('/login')
     return render(request, 'register.html')
 
