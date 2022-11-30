@@ -34,7 +34,7 @@
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             {%for branch_link in branches %}
-            <a class="dropdown-item" href="{{branch_link}}">Branch {{forloop.counter}}</a>
+              <a class="dropdown-item" href="{{branch_link}}">Branch {{forloop.counter}}</a>
             {%endfor %}
           </div>
         </div>
@@ -50,7 +50,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="/admin">Administrator</a>
               <!--Log out-->
-              <form action="POST" name="logout">
+              <form method = 'POST' action="" name="logout">
                 <a class="dropdown-item" href="/logout">Log out</a>
               </form>
             </div>

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Customer, Package, Roomtype, Receipt, Branch, Bedinfo, SupplyInRoom
 from django.contrib import messages
+from django.db import connection
 # Create your views here.
 def home(request):
     return redirect('/branch/1')
@@ -9,9 +10,38 @@ def home(request):
 @login_required(login_url='/login')
 def dashboard(request, branch):
 
+    #   DO STATS
+    cursor =  connection.cursor()
+    default_total_guest = [0 for _ in range(12)]
+    percentages = [0 for _ in range(12)]
+    months = list(range(1,13))
+
+    print(months)
+    if request.method == 'GET':
+        year = request.GET.get('year')
+
+    if not year:
+        year = 2022
+    
+    FUNCTION = "SELECT * FROM f_SumGuest({}, {})".format(branch, year)
+    # answer = (str(branch), str(year))
+    cursor.execute(FUNCTION)
+    querySet = cursor.fetchall()
+    if not len(querySet) == 0:
+        for result in querySet:
+            print(result[1])
+            default_total_guest[result[0] -1] = result[1]
+
+        for idx, item in enumerate(default_total_guest):
+            percentages[idx] = int((item / sum(default_total_guest))*500)
+    stats = dict()
+
+    for idx, month in enumerate(months):
+        stats[month] = [percentages[idx], default_total_guest[idx]]
+    
+
     total_customer = Customer.objects.count()
     total_package = Package.objects.count()
-    print(Customer.objects.all().count(), Receipt.objects.all().count())
 
     #   GET all branches
     num_branch = 0
@@ -36,7 +66,8 @@ def dashboard(request, branch):
         'total_customers':  total_customer,
         'total_package': total_package,
         'branches': branches_link,
-        'branch': branch
+        'branch': branch,
+        'stats': stats
     })
 
 def room(request):

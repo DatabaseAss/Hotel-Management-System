@@ -32,9 +32,9 @@ def loginUser(request):
 
 def logoutUser(request):
     
-    logout(request.user)
+    # logout(request)
 
-    return redirect(request, '/')
+    return redirect(request, '/login')
 
 def registerUser(request):
     if request.method == "POST":
