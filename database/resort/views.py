@@ -112,4 +112,6 @@ def addroom(request):
         except:
             messages.info(request, "Some errors occur in adding supply. Please try again")
             return redirect('/addroom')
+        
+        messages.info(request, "Create successfully")
     return render(request, 'addroom.html')
