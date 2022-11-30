@@ -2,7 +2,7 @@ USE db_ass;
 GO
 
 -- FUNCT. 1
-CREATE OR ALTER FUNCTION f_CheckPackage (@CUSTOMERID INT) 
+CREATE OR ALTER FUNCTION f_Packageleft (@CUSTOMERID INT) 
 RETURNS TABLE AS 
 RETURN 
 (
@@ -38,12 +38,12 @@ RETURN
     JOIN PACKAGE T2 ON T2.PACKAGE_NAME = T1.BILL_PACKAGE_NAME
 )
 GO
-SELECT * FROM f_CheckPackage(4)
+SELECT * FROM f_Packageleft(4)
 GO
 
 --FUNCT. 2
  -- %%%%%%%%%%%%%%%%%%%% CHECKED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-CREATE OR ALTER FUNCTION f_SumGuest (@BRANCHID INT, @YEARR INT) 
+CREATE OR ALTER FUNCTION f_TotalGuest (@BRANCHID INT, @YEARR INT) 
 RETURNS TABLE AS 
 RETURN
 (
@@ -78,5 +78,5 @@ RETURN
     SELECT * FROM Receipt_by_month
 )
 GO
-SELECT * FROM f_SumGuest(4, 2022)
+SELECT * FROM f_TotalGuest(4, 2022)
 GO
