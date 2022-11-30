@@ -47,20 +47,16 @@
             <div style="margin-left:-8em;">
                 <div class="title">
                     <h5>Add Room</h5>
-                    <form method="POST" action="" class="create" name="button">
-                        <button style="background-color:#575757;">Create</button>
-                        <button style="border-color:#acacac; color:black;">Cancel</button>
-                    </form>
                 </div>
                 <div style="display:flex;">
                     <div class="info-holder">
-                        <form method='GET' action="" class="info" name="info">
+                        <form method='POST' action="" class="info" name="info">
                             {%csrf_token%}
                             <h5><i class="fa-solid fa-circle-info"></i> General information</h5>
                             <div style="display:flex; margin-bottom:1em;">
 
-                                <div style="margin-left:4em;">
-                                    <p><b>Room Type Name</b></p><input type="text" placeholder="123456789" class="ans2"
+                                <div>
+                                    <p><b>Room Type Name</b></p><input type="text" placeholder="123456789" class="ans"
                                         name="roomtypename">
                                 </div>
                             </div>
@@ -109,6 +105,13 @@
                                 <p><b>Upload the room's picture here</b></p>
                                 <input type="file" accept="image/*" onchange="loadFile(event)">
                                 <img id="output" />
+                            </div>
+                            <button style="background-color:#575757;">Create</button>
+                            <button style="border-color:#acacac; color:black;">Cancel</button>
+                            <div class="message">
+                                {% for message in messages %}
+                                {{message}}
+                                {%endfor%}
                             </div>
                         </form>
                     </div>
