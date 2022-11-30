@@ -13,11 +13,13 @@ def dashboard(request, branch):
     total_package = Package.objects.count()
     print(Customer.objects.all().count(), Receipt.objects.all().count())
 
+    #   GET all branches
     num_branch = 0
     for _, _ in enumerate(Branch.objects.all()):
         num_branch += 1
     branches_link = ["/branch/" + str(x) for x in range(1,num_branch)]
-
+    #   GET all branches
+    
     if request.method == 'GET':
 
         receipts = Receipt.objects.all()

@@ -1,11 +1,13 @@
-html{
+html {
     overflow-x: hidden;
 }
-.holder{
-    width:100vw;
-    height:100vh;
-    margin:0;
+
+.holder {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
 }
+
 /* The side navigation menu */
 .sidebar {
     margin: 0;
@@ -16,229 +18,263 @@ html{
     height: 100%;
     overflow: auto;
     font-weight: bold;
-  }
-  
-.sidebar .logo {
-    width:100%;
-    height:5em;
-    display: flex;
-    padding-top:1em;
-    padding-left:.5em;
 }
 
-.sidebar .logo img{
-    width:3em;
-    height:3em;
+.sidebar .logo {
+    width: 100%;
+    height: 5em;
+    display: flex;
+    padding-top: 1em;
+    padding-left: .5em;
 }
-.sidebar .logo p{
-    font-size:18px;
+
+.sidebar .logo img {
+    width: 3em;
+    height: 3em;
+}
+
+.sidebar .logo p {
+    font-size: 18px;
     font-weight: bold;
-    padding-top:.5em;
-    padding-left:1em;
-    
+    padding-top: .5em;
+    padding-left: 1em;
+
 }
-  /* Sidebar links */
+
+/* Sidebar links */
 .sidebar a {
     display: block;
     color: black;
     padding: 16px;
     text-decoration: none;
     height: 20.5em;
-    padding-top:80%;
+    padding-top: 80%;
 }
+
 .sidebar i {
     padding-right: 16px;
 }
-  
-  /* Active/current link */
+
+/* Active/current link */
 .sidebar a.active {
     background-color: #676767;
     color: white;
 }
-  
-  /* Links on mouse-over */
+
+/* Links on mouse-over */
 .sidebar a:hover:not(.active) {
     background-color: #676767;
     color: white;
 }
 
-.main{
-    width:auto;
-    height:100%;
+.main {
+    width: auto;
+    height: 100%;
     margin-left: 200px;
 }
-.header{
+
+.header {
     width: 100%;
     height: 10%;
     display: flex;
 }
-.dropdown{
-    padding-top:1em;
-    padding-left:5em;
-    width:5em;
-}
-.dropdown button{
-    border:solid 1px #acacac;
-    width:10em;
-    border-radius: 0px;
-}
-.dropdown button:hover{
-    border:solid 1px #acacac;
+
+.dropdown {
+    padding-top: 1em;
+    padding-left: 5em;
+    width: 5em;
 }
 
-.header .icon{
-    margin-left:41em;
-    margin-top:.6em;
+.dropdown button {
+    border: solid 1px #acacac;
+    width: 10em;
+    border-radius: 0px;
+}
+
+.dropdown button:hover {
+    border: solid 1px #acacac;
+}
+
+.header .icon {
+    margin-left: 41em;
+    margin-top: .6em;
     font-size: 25px;
 }
-.user{
+
+.user {
     font-size: 38px;
 }
-.header .icon a{
+
+.header .icon a {
     margin: 0em .4em;
     color: #676767;
 }
 
-.title{
-    width:100%;
-    height:5em;
-    display:flex;
+.title {
+    width: 100%;
+    height: 5em;
+    display: flex;
 }
-.title .create{
-    margin-left:48em;
+
+.title .create {
+    margin-left: 48em;
 }
-.title h5{
+
+.title h5 {
     font-size: 30px;
     font-weight: bold;
-    margin-top:.5em;
-    margin-left:5.5em;
+    margin-top: .5em;
+    margin-left: 5.5em;
 }
-.title .create button{
-    width:10em;
-    height:2.5em;
+
+.info-holder button {
+    width: 10em;
+    height: 2.5em;
     border-radius: 10px;
     font-weight: bold;
-    color:white;
+    color: white;
     background-color: #acacac;
     border: none;
-    margin-top:1em;
+    margin-top: 1em;
 }
-.title .create button:hover{
+
+.info-holder button:hover {
     background-color: #5f5f5f;
 }
-.info-holder{
-    height:auto;
-    width:78em;
+
+.info-holder {
+    height: auto;
+    width: 78em;
     background-color: #e4e4e4;
     border-radius: 15px;
-    margin-bottom:1em;
-    padding:2.5em;
-    margin-left:10em;
+    margin-bottom: 1em;
+    padding: 2.5em;
+    margin-left: 10em;
 
-  }
-  .info-holder h5{
+}
+
+.info-holder h5 {
     font-weight: bold;
-    margin-bottom:1.5em;
-  }
-  .info-holder .ans{
+    margin-bottom: 1.5em;
+}
+
+.info-holder .ans {
     background-color: #acacac;
-    width:72em;
-    height:2.5em;
-    margin-top:-.5em;
-    margin-left:0em;
-    padding-left:1em;
-    padding-top:.5em;
+    width: 72em;
+    height: 2.5em;
+    margin-top: -.5em;
+    margin-left: 0em;
+    padding-left: 1em;
+    padding-top: .5em;
     border-radius: 5px;
-  }
-  .info-holder .ans1{
+}
+
+.info-holder .ans1 {
     background-color: #acacac;
-    width:34em;
-    height:2.5em;
-    margin-top:-.5em;
-    padding-left:1em;
-    padding-top:.5em;
+    width: 34em;
+    height: 2.5em;
+    margin-top: -.5em;
+    padding-left: 1em;
+    padding-top: .5em;
     border-radius: 5px;
-  }
-  .info-holder .ans2{
+}
+
+.info-holder .ans2 {
     background-color: #acacac;
-    width:34em;
-    height:2.5em;
-    margin-top:-.5em;
-    padding-left:1em;
-    padding-top:.5em;
+    width: 34em;
+    height: 2.5em;
+    margin-top: -.5em;
+    padding-left: 1em;
+    padding-top: .5em;
     border-radius: 5px;
-  }
-  .info-holder input{
+}
+
+.info-holder input {
     background-color: #acacac;
-    border:none;
+    border: none;
     border-color: solid 1px #acacac;
-    padding:.5em;
-  }
+    padding: .5em;
+}
 
-.related{
-    height:auto;
-    width:100%;
+.related {
+    height: auto;
+    width: 100%;
     background-color: #e4e4e4;
     border-radius: 15px;
-    margin-bottom:1em;
+    margin-bottom: 1em;
 }
-.related h5{
+
+.related h5 {
     font-weight: bold;
-    margin-top:3em;
-    margin-bottom:1.5em;
-  }
-.related input{
+    margin-top: 3em;
+    margin-bottom: 1.5em;
+}
+
+.related input {
     background-color: transparent;
-    height:5em;
-    margin-top:4em;
+    height: 5em;
+    margin-top: 4em;
 }
-.related img{
-    width:30em;
-    margin-top:-8em;
-    margin-left:10.5em;
+
+.related img {
+    width: 30em;
+    margin-top: -8em;
+    margin-left: 10.5em;
 }
 
 
 
 
-.bed{
-    margin-top:1em;
+.bed {
+    margin-top: 1em;
 }
-#bed .ans1, #bed .ans2{
-    width:17em;
+
+#bed .ans1,
+#bed .ans2 {
+    width: 17em;
 }
-#bed td{
-    padding-bottom:1em;
+
+#bed td {
+    padding-bottom: 1em;
 }
-.bed button{
-    height:2.5em;
-    width:12em;
+
+.bed button {
+    height: 2.5em;
+    width: 12em;
     border-radius: 10px;
     background-color: #767676;
-    margin-top:1em;
-    border:none;
+    margin-top: 1em;
+    border: none;
     font-weight: bold;
-    color:white;
+    color: white;
 }
 
-.supply{
-    margin-top:1em;
-    margin-left:4em;
+.supply {
+    margin-top: 1em;
+    margin-left: 4em;
 }
-#supply .ans1, #supply .ans2{
-    width:16.75em;
+
+#supply .ans1,
+#supply .ans2 {
+    width: 16.75em;
 }
-#supply td{
-    padding-bottom:1em;
+
+#supply td {
+    padding-bottom: 1em;
 }
-.supply button{
-    height:2.5em;
-    width:12em;
+
+.supply button {
+    height: 2.5em;
+    width: 12em;
     border-radius: 10px;
     background-color: #767676;
-    margin-top:1em;
-    border:none;
+    margin-top: 1em;
+    border: none;
     font-weight: bold;
-    color:white;
+    color: white;
 }
 
+.message {
+    margin-top: 3em;
+    color: red;
+}
