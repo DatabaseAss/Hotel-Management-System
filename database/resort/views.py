@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .models import Customer, Package, Roomtype
+from .models import Customer, Package, Roomtype, Receipt
 
 # Create your views here.
 # @login_required(login_url='/login')
@@ -10,6 +10,8 @@ def dashboard(request):
     total_package = Package.objects.count()
 
     if request.method == 'GET':
+
+        receipts = Receipt.objects.all()
         search_key = request.GET.get("search_key")
         
         if search_key:
@@ -19,7 +21,7 @@ def dashboard(request):
 
     return render(request, 'dashboard.html', context={
         'customers': customers,
-        'enumerate_customer': enumerate(customers),
+        'receipts': receipts,
         'total_customers':  total_customer,
         'total_package': total_package
     })
