@@ -262,9 +262,9 @@ class Supplier(models.Model):
 
 
 class Supply(models.Model):
-    supply_branchid = models.OneToOneField(Room, models.DO_NOTHING, db_column='SUPPLY_BRANCHID',related_name='supply_branchid')  # Field name made lowercase.
+    supply_branchid = models.OneToOneField(Room, models.DO_NOTHING, db_column='SUPPLY_BRANCHID', related_name='supply_branchid')  # Field name made lowercase.
     supplyid = models.ForeignKey('SupplyType', models.DO_NOTHING, db_column='SUPPLYID')  # Field name made lowercase.
-    stt_id = models.AutoField(db_column='STT_ID',primary_key=True)  # Field name made lowercase.
+    stt_id = models.AutoField(db_column='STT_ID', primary_key=True)  # Field name made lowercase.
     supply_roomid = models.ForeignKey(Room, models.DO_NOTHING, db_column='SUPPLY_ROOMID')  # Field name made lowercase.
     statuss = models.CharField(db_column='STATUSS', max_length=255, db_collation='SQL_Latin1_General_CP1_CI_AS', blank=True, null=True)  # Field name made lowercase.
 

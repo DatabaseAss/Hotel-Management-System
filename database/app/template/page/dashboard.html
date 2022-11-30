@@ -50,7 +50,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="/admin">Administrator</a>
               <!--Log out-->
-              <form action="POST">
+              <form action="POST" name="logout">
                 <a class="dropdown-item" href="#">Log out</a>
               </form>
             </div>
@@ -120,7 +120,7 @@
       <div class="customerList">
         <div style="display:flex;">
           <h4><b>CLIENTS INFORMATION</b></h4>
-          <form method='GET' class="searching" action="action_page.php">
+          <form method='GET' class="searching" action="action_page.php" name="searchbar">
             <input type="text" placeholder="Search.." name="search_key" style="
             width:20em; 
             height:2.5em;
