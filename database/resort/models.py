@@ -21,7 +21,7 @@ class Bedinfo(models.Model):
 
 class Bill(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
-    billid = models.CharField(db_column='BILLID', unique=True, max_length=16, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
+    billid = models.CharField(db_column='BILLID', max_length=16, db_collation='SQL_Latin1_General_CP1_CI_AS', blank=True, null=True)  # Field name made lowercase.
     bill_checkin = models.TimeField(db_column='BILL_CHECKIN')  # Field name made lowercase.
     bill_checkout = models.TimeField(db_column='BILL_CHECKOUT')  # Field name made lowercase.
     bill_bookingid = models.ForeignKey('Receipt', models.DO_NOTHING, db_column='BILL_BOOKINGID')  # Field name made lowercase.
@@ -47,7 +47,7 @@ class BillService(models.Model):
 
 class Branch(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
-    branchid = models.CharField(db_column='BRANCHID', unique=True, max_length=5, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
+    branchid = models.CharField(db_column='BRANCHID', unique=True, max_length=5, db_collation='SQL_Latin1_General_CP1_CI_AS', blank=True, null=True)  # Field name made lowercase.
     province = models.CharField(db_column='PROVINCE', max_length=255, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
     addr = models.CharField(db_column='ADDR', unique=True, max_length=255, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
     phone = models.CharField(db_column='PHONE', unique=True, max_length=255, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
@@ -198,8 +198,8 @@ class Roomtype(models.Model):
 
 class Services(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
+    service_type = models.CharField(db_column='SERVICE_TYPE', max_length=1, db_collation='SQL_Latin1_General_CP1_CI_AS', blank=True, null=True)  # Field name made lowercase.
     serviceid = models.CharField(db_column='SERVICEID', unique=True, max_length=8, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
-    service_type = models.CharField(db_column='SERVICE_TYPE', max_length=1, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
     service_capacity = models.IntegerField(db_column='SERVICE_CAPACITY')  # Field name made lowercase.
     style = models.CharField(db_column='STYLE', max_length=255, db_collation='SQL_Latin1_General_CP1_CI_AS', blank=True, null=True)  # Field name made lowercase.
     companyid = models.ForeignKey(Company, models.DO_NOTHING, db_column='COMPANYID')  # Field name made lowercase.
