@@ -45,7 +45,7 @@ BEGIN
     UPDATE BILL_SERVICE
     SET [TOTAL_COST (kVND)] = (SELECT Tong_tien FROM thanh_toan_gdv)
     , USED_DATE = (SELECT So_ngay_gdv FROM thanh_toan_gdv)
-    WHERE BILL_CID = @maKH AND BILL_PACKAGE_NAME = @ten_goi_DV AND DATE_BUY = @ngay_gio_mua
+    WHERE BILL_CUSTOMERID = @maKH AND BILL_PACKAGE_NAME = @ten_goi_DV AND DATE_BUY = @ngay_gio_mua
 END
 GO
 
@@ -116,8 +116,8 @@ BEGIN
         FROM thong_tin_don
     )
     UPDATE RECEIPT 
-    SET [Tong_tien (ngan dong)] = (SELECT Tong_tien FROM thanh_toan) 
-    WHERE Ma_DP = @maDP
+    SET RECEIPT_TOTAL_COST = (SELECT Tong_tien FROM thanh_toan) 
+    WHERE RECEIPT_BOOKINGID = @maDP
 END
 GO
 
@@ -126,7 +126,7 @@ CREATE OR ALTER TRIGGER trg_UPDATE_DDP_TINH_TRANG
 ON [dbo].[RECEIPT]
    AFTER UPDATE
 AS BEGIN
-    IF UPDATE (STATUSS)
+    IF UPDATE (STAT)
     BEGIN
         DECLARE @maKH VARCHAR(8), @maDP CHAR(16), @tinhTrangMoi CHAR(1);
 		SET @maKH = (SELECT RECEIPT_CUSTOMERID FROM inserted);

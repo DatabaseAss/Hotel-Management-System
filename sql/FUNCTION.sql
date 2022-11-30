@@ -47,13 +47,13 @@ CREATE OR ALTER FUNCTION f_SumGuest (@BRANCHID INT, @YEARR INT)
 RETURNS TABLE AS 
 RETURN
 (
-    WITH receipt AS
+    WITH book_hd AS
     (
-        SELECT RECEIPT_BOOKINGID, BOOKING_TIME, STAT, RECEIPT_CAPACITY
+        SELECT ID, BOOKING_TIME, STAT, RECEIPT_CAPACITY
         FROM RECEIPT
         WHERE STAT = 1
     )
-    , Hiring_room AS
+    , Hire AS
     (
         SELECT  HR_BOOKINGID, HR_BRANCHID
         FROM HIRING_ROOM
@@ -61,11 +61,11 @@ RETURN
     )
     , ticket_book_room AS
     (
-        SELECT  receipt.RECEIPT_BOOKINGID
-                , MONTH(receipt.BOOKING_TIME) AS [Month]
-                , YEAR(receipt.BOOKING_TIME) as [Year]
-                , receipt.RECEIPT_CAPACITY
-        FROM receipt JOIN Hiring_room ON receipt.RECEIPT_BOOKINGID = Hiring_room.HR_BOOKINGID
+        SELECT  book_hd.ID
+                , MONTH(book_hd.BOOKING_TIME) AS [Month]
+                , YEAR(book_hd.BOOKING_TIME) as [Year]
+                , book_hd.RECEIPT_CAPACITY
+        FROM book_hd JOIN Hiring_room ON book_hd.ID = Hiring_room.HR_BOOKINGID
     )
     , Receipt_by_month AS
     (
@@ -78,5 +78,5 @@ RETURN
     SELECT * FROM Receipt_by_month
 )
 GO
-SELECT * FROM f_SumGuest(1, 2022)
+SELECT * FROM f_SumGuest(4, 2022)
 GO
