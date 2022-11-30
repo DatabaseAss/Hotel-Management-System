@@ -154,8 +154,9 @@ form.searchbar input[type=text] {
     margin-top:-1.5em;
     margin-left:1em;
     font-size: 60px;
-    font-weight: bold;
+    font-weight: 900;
     color:white;
+    font-family: 'Optima';
 }
   
   /* Hide the images by default */
@@ -257,7 +258,7 @@ form.searchbar input[type=text] {
     background-color: #acacac;
 }
 .item .image{
-    width: 45em;
+    width: 30em;
     height:14em;
     border-radius: 15px;
 }
@@ -270,7 +271,7 @@ form.searchbar input[type=text] {
     color:black;
 }
 .item .info h3{
-    margin-left:28em;
+    margin-left:0em;
 }
 .add .btn{
   width:12em;
