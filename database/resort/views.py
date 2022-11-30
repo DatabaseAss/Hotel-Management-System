@@ -8,7 +8,7 @@ def dashboard(request):
 
     total_customer = Customer.objects.count()
     total_package = Package.objects.count()
-
+    print(Customer.objects.all().count(), Receipt.objects.all().count())
     if request.method == 'GET':
 
         receipts = Receipt.objects.all()

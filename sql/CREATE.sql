@@ -1,11 +1,3 @@
-
-USE TMP
-GO
-DROP DATABASE db_ass 
-GO
-CREATE DATABASE db_ass
-GO
-
 USE db_ass
 GO
 
