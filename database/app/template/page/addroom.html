@@ -54,35 +54,39 @@
                 </div>
                 <div style="display:flex;">
                     <div class="info-holder">
-                        <form method="POST" action="" class="info" name="info">
+                        <form method='GET' action="" class="info" name="info">
                             {%csrf_token%}
                             <h5><i class="fa-solid fa-circle-info"></i> General information</h5>
                             <div style="display:flex; margin-bottom:1em;">
-                                <div>
-                                    <p><b>Room Type ID</b></p><input type="text" placeholder="123456789" class="ans1" name="roomtypeid">
-                                </div>
+
                                 <div style="margin-left:4em;">
-                                    <p><b>Room Type Name</b></p><input type="text" placeholder="123456789" class="ans2" name="roomtypename">
+                                    <p><b>Room Type Name</b></p><input type="text" placeholder="123456789" class="ans2"
+                                        name="roomtypename">
                                 </div>
                             </div>
                             <div style="display:flex; margin-bottom:1em;">
                                 <div>
-                                    <p><b>Area</b></p><input type="text" placeholder="cd1000m2" class="ans1" name="area">
+                                    <p><b>Area</b></p><input type="text" placeholder="cd1000m2" class="ans1"
+                                        name="area">
                                 </div>
                                 <div style="margin-left:4em;">
-                                    <p><b>Capacity</b></p><input type="text" placeholder="123456789" class="ans2" name="capacity">
+                                    <p><b>Capacity</b></p><input type="text" placeholder="123456789" class="ans2"
+                                        name="capacity">
                                 </div>
                             </div>
                             <div>
-                                <p><b>Description</b></p><input type="text" placeholder="Great" class="ans" name="description">
+                                <p><b>Description</b></p><input type="text" placeholder="Great" class="ans"
+                                    name="description">
                             </div>
                             <div style="display:flex; margin-bottom:1em;">
                                 <div class="bed">
                                     <p><b>Bed Information</b></p>
                                     <table id="bed">
                                         <tr>
-                                            <td><input type="text" placeholder="Bed size" class="ans1" name="bedsize"></td>
-                                            <td><input type="text" placeholder="Bed quantity" class="ans2" name="bedquantity"></td>
+                                            <td><input type="text" placeholder="Bed size" class="ans1" name="bedsize">
+                                            </td>
+                                            <td><input type="text" placeholder="Bed quantity" class="ans2"
+                                                    name="bedquantity"></td>
                                         </tr>
                                     </table>
                                     <button type="button" onclick="myFunction()">Add more bed</button>
@@ -91,8 +95,10 @@
                                     <p><b>Supply Information</b></p>
                                     <table id="supply">
                                         <tr>
-                                            <td><input type="text" placeholder="Supply ID" class="ans1" name="supplyid"></td>
-                                            <td><input type="text" placeholder="Quantity" class="ans2" name="supplyquantity"></td>
+                                            <td><input type="text" placeholder="Supply ID" class="ans1" name="supplyid">
+                                            </td>
+                                            <td><input type="text" placeholder="Quantity" class="ans2"
+                                                    name="supplyquantity"></td>
                                         </tr>
                                     </table>
                                     <button type="button" onclick="myFunction2()">Add more supply</button>

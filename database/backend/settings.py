@@ -92,9 +92,9 @@ DATABASES = {
     'default':{
         'ENGINE': 'mssql',
         'NAME': 'db_ass',
-        'USERNAME': 'chanhtran2410',
-        'PASSWORD': 'trungchanh2410',
-        'HOST': 'TRUNGCHANH-SET\HOANG_CHANH',
+        'USERNAME': 'hoang',
+        'PASSWORD': 'Hoang#2002',
+        'HOST': 'DESKTOP-PDOP3R0\MSSQLSERVER01',
         'PORT': '',
         'OPTIONS':{
             'driver': 'ODBC Driver 17 for SQL Server',

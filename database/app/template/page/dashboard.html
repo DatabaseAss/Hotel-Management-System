@@ -33,9 +33,9 @@
             Branch
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Branch 1</a>
-            <a class="dropdown-item" href="#">Branch 2</a>
-            <a class="dropdown-item" href="#">Branch 3</a>
+            {%for branch_link in branches %}
+            <a class="dropdown-item" href="{{branch_link}}">Branch {{forloop.counter}}</a>
+            {%endfor %}
           </div>
         </div>
         <div class="icon">
@@ -51,7 +51,7 @@
               <a class="dropdown-item" href="/admin">Administrator</a>
               <!--Log out-->
               <form action="POST" name="logout">
-                <a class="dropdown-item" href="#">Log out</a>
+                <a class="dropdown-item" href="/logout">Log out</a>
               </form>
             </div>
           </div>
