@@ -32,10 +32,9 @@ def loginUser(request):
 
 def logoutUser(request):
     
-    # logout(request)
-
-    return redirect(request, '/login')
-
+    logout(request)
+    return redirect('/')
+    
 def registerUser(request):
     if request.method == "POST":
         full_name = request.POST['yourname']
