@@ -53,14 +53,16 @@ def dashboard(request, branch):
     
     if request.method == 'GET':
 
-        receipts = Receipt.objects.all()
         search_key = request.GET.get("search_key")
         
         if search_key:
-            customers = Customer.objects.all().filter(fullname__icontains=search_key)
+            customers = Customer.objects.order_by('id').all().filter(fullname__icontains=search_key)
         else:
-            customers = Customer.objects.all()
+            customers = Customer.objects.order_by('id').all()
 
+        receipts = Receipt.objects.all().filter(receipt_customerid__in = customers)
+        for item in receipts:
+            print(item.receipt_customerid.fullname)
     return render(request, 'dashboard.html', context={
         'customers': customers,
         'receipts': receipts,
@@ -78,7 +80,12 @@ def room(request):
 def roomtype(request):
     
     roomtypes = Roomtype.objects.all()
-
+    if request.method == 'GET':
+            search_key = request.GET.get('search_roomtype')
+            if search_key:
+                print(search_key)
+                roomtypes = Roomtype.objects.all().filter(typename__icontains = search_key)
+                
     return render(request, 'roomtype.html', context = {
         'room_types': roomtypes
     })

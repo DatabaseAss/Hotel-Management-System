@@ -138,21 +138,21 @@
             <th>Point</th>
             <th>Rank</th>
           </tr>
-          {%for customer in customers %}
+          {%for ticket in receipts %}
           <tr onclick="showHideRow('hidden_row{{forloop.counter}}');">
-            <td>{{customer.customerid}}</td>
-            <td>{{customer.fullname}}</td>
-            <td>{{customer.username}}</td>
-            <td>{{customer.email}}</td>
-            <td>{{customer.phonenumber}}</td>
-            <td>{{customer.points}}</td>
-            {% if customer.ctype == 1 %}
+            <td>{{ticket.receipt_customerid.customerid}}</td>
+            <td>{{ticket.receipt_customerid.fullname}}</td>
+            <td>{{ticket.receipt_customerid.username}}</td>
+            <td>{{ticket.receipt_customerid.email}}</td>
+            <td>{{ticket.receipt_customerid.phonenumber}}</td>
+            <td>{{ticket.receipt_customerid.points}}</td>
+            {% if ticket.receipt_customerid.ctype == 1 %}
             <td>Potential</td>
-            {% elif customer.ctype == 2 %}
+            {% elif ticket.receipt_customerid.ctype == 2 %}
             <td>Regular</td>
-            {% elif customer.ctype == 3 %}
+            {% elif ticket.receipt_customerid.ctype == 3 %}
             <td>VIP</td>
-            {% elif customer.ctype == 4 %}
+            {% elif ticket.receipt_customerid.ctype == 4 %}
             <td>SuperVIP</td>
             {%endif%}
           </tr>
